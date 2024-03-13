@@ -1,2 +1,2 @@
 # .dotfiles
-my dotfiles repo for linux *_*
+my dotfiles repo for linux ^_^
