@@ -1,83 +1,65 @@
 #!/usr/bin/sh
+# See the river(1), riverctl(1), and rivertile(1) man pages
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
-# documentation.
+### Variables
+config="$HOME/.config/river/init"
+browser="firefox"
 
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
-
-# Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super+Shift Return spawn "flatpak run org.wezfurlong.wezterm"
-riverctl map normal Super+Shift F spawn firefox
-riverctl map normal Super W spawn "wofi --show drun"
+### Start
+riverctl spawn "foot --server"
 riverctl spawn "dbus-update-activation-environment SEATD_SOCK DISPLAY=:0 WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
-# Super+Q to close the focused view
+### Basic key bundings
+riverctl map normal Super Return spawn footclient
 riverctl map normal Super Q close
-
-# Super+Shift+E to exit river
+riverctl map normal Super C spawn "footclient nvim $config"
+riverctl map normal Super R spawn "sh $config"
+riverctl map normal Super B spawn $browser
 riverctl map normal Super+Shift E exit
 
-# Super+J and Super+K to focus the next/previous view in the layout stack
-riverctl map normal Super H focus-view left
-riverctl map normal Super J focus-view down
-riverctl map normal Super K focus-view up
-riverctl map normal Super L focus-view right
+### Navigation
+riverctl map normal Super J focus-view next
+riverctl map normal Super K focus-view previous
 
-# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
-# view in the layout stack 
-riverctl map normal Super+Shift H swap left
-riverctl map normal Super+Shift J swap down
-riverctl map normal Super+Shift K swap up
-riverctl map normal Super+Shift L swap right
+riverctl map normal Super+Shift J swap next
+riverctl map normal Super+Shift K swap previous
 
-# Super+Period and Super+Comma to focus the next/previous output
 riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
 
-# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
 riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
-# Super+Return to bump the focused view to the top of the layout stack
-riverctl map normal Super Return zoom
+riverctl map normal Super+Shift Return zoom
 
-# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-# riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-# riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+### Rivertile related
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 
-# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-# riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-# riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
 
-# riverctl map normal Super+Alt H move left 100
-# riverctl map normal Super+Alt J move down 100
-# riverctl map normal Super+Alt K move up 100
-# riverctl map normal Super+Alt L move right 100
+# Super+Alt+{H,J,K,L} to move views
+riverctl map normal Super+Alt H move left 100
+riverctl map normal Super+Alt J move down 100
+riverctl map normal Super+Alt K move up 100
+riverctl map normal Super+Alt L move right 100
 
 # Super+Alt+Control+{H,J,K,L} to snap views to screen edges
-# riverctl map normal Super+Alt+Control H snap left
-# riverctl map normal Super+Alt+Control J snap down
-# riverctl map normal Super+Alt+Control K snap up
-# riverctl map normal Super+Alt+Control L snap right
+riverctl map normal Super+Alt+Control H snap left
+riverctl map normal Super+Alt+Control J snap down
+riverctl map normal Super+Alt+Control K snap up
+riverctl map normal Super+Alt+Control L snap right
 
 # Super+Alt+Shift+{H,J,K,L} to resize views
-# riverctl map normal Super+Alt+Shift H resize horizontal -100
-# riverctl map normal Super+Alt+Shift J resize vertical 100
-# riverctl map normal Super+Alt+Shift K resize vertical -100
-# riverctl map normal Super+Alt+Shift L resize horizontal 100
+riverctl map normal Super+Alt+Shift H resize horizontal -100
+riverctl map normal Super+Alt+Shift J resize vertical 100
+riverctl map normal Super+Alt+Shift K resize vertical -100
+riverctl map normal Super+Alt+Shift L resize horizontal 100
 
-# Super + Left Mouse Button to move views
+### Mouse action
 riverctl map-pointer normal Super BTN_LEFT move-view
-
-# Super + Right Mouse Button to resize views
 riverctl map-pointer normal Super BTN_RIGHT resize-view
-
-# Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
 for i in $(seq 1 9)
@@ -148,21 +130,19 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
 done
 
-# Set background and border color
+### Appearance
 riverctl background-color 0x002b36
 riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
-riverctl border-width 4
+riverctl border-width 3
 
 # Set keyboard repeat rate
-riverctl set-repeat 50 300
+riverctl set-repeat 40 300
 
-# Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add -app-id 'float*' -title 'foo' float
-
-# Make all views with app-id "bar" and any title use client-side decorations
-riverctl rule-add -app-id "bar" csd
+### Rules
 riverctl rule-add -app-id "*" ssd
+riverctl rule-add -app-id "float*" -title "foo" float
+riverctl rule-add -app-id "bar" csd
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
