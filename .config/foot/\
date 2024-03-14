@@ -1,6 +1,0 @@
-[main]
-include=/usr/share/foot/themes/gruvbox-dark
-pad=20
-
-[csd]
-preffered=server
