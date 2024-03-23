@@ -1,0 +1,73 @@
+{
+	"position": "top",
+	"layer": "top",
+	"gtk-layer-shell": true,
+	"height": 35,
+	"margin-top": 5,
+	"margin-bottom": 0,
+	"margin-left": 10,
+	"margin-right": 10,
+
+	"modules-left": [
+		"cpu",
+		"memory"
+	],
+
+	"modules-center": [
+	],
+
+	"modules-right": [
+		"tray",
+		"clock",
+		"pulseaudio",
+		"bluetooth",
+		"network"
+	],
+
+	"cpu": {
+		"interval": 10,
+		"format": "<span font='14' color='#6a9589'>CPU</span> <span font='14' color='#98bb6c'>{usage}%</span>"	
+	},
+
+	"memory": {
+		"interval": 10,
+		"format": "<span font='14' color='#6a9589'>RAM</span> <span font='14' color='#98bb6c'>{used} GiB</span>"
+	},
+	
+	"pulseaudio": {
+		"format": "<span font='16' color='#6a9589'>{icon}</span> <span font='14' color='#98bb6c'>{volume}%</span>",
+		"format-muted": "<span font='16' color='#6a9589'>{icon}</span> <span font='14' color='#98bb6c'>off</span>",
+		"on-click": "pamixer -t",
+		"on-scroll-up": "pamixer -i 5",
+		"on-scroll-down": "pamixer -d 5",
+		"format-icons": {
+			"headphone": "󰋋",
+			"headset": "󰋎",
+			"phone": "󰏲",
+			"car": "󰄋",
+			"default": ["󰕿", "󰖀", "󰕾"]
+		}
+	},
+
+	"network": {
+		"interface": "wlp8s0",
+		"format": "{ifname}",
+		"format-wifi": "<span font='16' color='#6a9589'>󰖩</span> <span font='14' color='#98bb6c'>{essid}</span>",
+		"tooltip": false
+	},
+
+	"bluetooth": {
+		"format": "<span font='16' color='#6a9589'>󰂯</span> <span font='14' color='#98bb6c'>{status}</span>",
+		"format-disabled": "<span font='14' color='#6a9589'>󰂲</span> <span font='14' color='#98bb6c'>{status}</span>",
+		"format-connected": "<span font='14' color='#6a9589'>󰂱</span> <span font='14' color='#98bb6c'>{num_connections} connected</span>"
+	},
+
+	"clock": {
+		"format": "<span font='16' color='#6a9589'>󱑎</span> <span font='14' color='#98bb6c'>{:%H:%M}</span>"
+	},
+
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10
+	}
+}

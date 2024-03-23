@@ -1,0 +1,45 @@
+* {
+	font-size: 14px;
+	font-family: 'Cascadia Code';
+}
+
+window#waybar {
+	background-color: rgba(31,31,40,0.95);
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 0px;
+	border-color: #6a9589;
+}
+
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#bluetooth,
+#clock,
+#tray
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#cpu {
+	margin-left: 10px
+}
+
+#tray {
+	margin-right: 5px;
+}
+
+#network {
+	margin-right: 10px;
+	margin-left: 0px;
+}
+
+#workspaces {
+	background-color: rgba(31,31,40,0.95);
+	margin: 5px 5px 5px 5px;
+	padding: 0px 0px 0px 0px;
+}
