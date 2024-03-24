@@ -2,41 +2,69 @@
 	"position": "top",
 	"layer": "top",
 	"gtk-layer-shell": true,
-	"height": 35,
-	"margin-top": 5,
+	"height": 50,
+	"margin-top": 0,
 	"margin-bottom": 0,
-	"margin-left": 10,
-	"margin-right": 10,
+	"margin-left": 0,
+	"margin-right": 0,
 
 	"modules-left": [
 		"cpu",
-		"memory"
+		"memory",
+		"hyprland/window"
 	],
 
 	"modules-center": [
+		"hyprland/workspaces"
 	],
 
 	"modules-right": [
-		"tray",
 		"clock",
+		"hyprland/language",
 		"pulseaudio",
 		"bluetooth",
-		"network"
+		"network",
+		"custom/power"
 	],
 
 	"cpu": {
 		"interval": 10,
-		"format": "<span font='14' color='#6a9589'>CPU</span> <span font='14' color='#98bb6c'>{usage}%</span>"	
+		"format": "<span font='14' color='#938aa9'>CPU</span> <span font='14' color='#98bb6c'>{usage}%</span>",
+		"tooltip": false
 	},
 
 	"memory": {
 		"interval": 10,
-		"format": "<span font='14' color='#6a9589'>RAM</span> <span font='14' color='#98bb6c'>{used} GiB</span>"
+		"format": "<span font='14' color='#938aa9'>RAM</span> <span font='14' color='#98bb6c'>{used} GiB</span>",
+		"tooltip": false
+	},
+
+	"hyprland/window": {
+		"format": "<span font='14' color='#e6c384'>{}</span>",
+		"max-length": 20
+	},
+
+	"hyprland/workspaces": {
+		"format": "<span font='16'>{icon}</span>",
+		"format-icons": {
+			"default": "󰺕",
+			"active": "󰮕"
+		},
+		"persistent-workspaces": {
+			"*": [1, 2, 3, 4, 5]
+		},
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"sort-by-number": true
+	},
+
+	"hyprland/language": {
+		"format": "<span font='16' color='#938aa9'>󰥻</span> <span font='14' color='#98bb6c'>{short}</span>"
 	},
 	
 	"pulseaudio": {
-		"format": "<span font='16' color='#6a9589'>{icon}</span> <span font='14' color='#98bb6c'>{volume}%</span>",
-		"format-muted": "<span font='16' color='#6a9589'>{icon}</span> <span font='14' color='#98bb6c'>off</span>",
+		"format": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{volume}%</span>",
+		"format-muted": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>off</span>",
 		"on-click": "pamixer -t",
 		"on-scroll-up": "pamixer -i 5",
 		"on-scroll-down": "pamixer -d 5",
@@ -46,28 +74,43 @@
 			"phone": "󰏲",
 			"car": "󰄋",
 			"default": ["󰕿", "󰖀", "󰕾"]
-		}
-	},
-
-	"network": {
-		"interface": "wlp8s0",
-		"format": "{ifname}",
-		"format-wifi": "<span font='16' color='#6a9589'>󰖩</span> <span font='14' color='#98bb6c'>{essid}</span>",
+		},
 		"tooltip": false
 	},
 
+	"network": {
+		"format": "<span font='16' color='#938aa9'>󱘖</span> <span font='14' color='#98bb6c'>{ifname}</span>",
+		"format-wifi": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{essid}</span>",
+		"format-ethernet": "<span font='16' color='#938aa9'>󰈀</span> <span font='14' color='#98bb6c'>{essid}</span>",
+		"format-disconnected": "<span font='16' color='#938aa9'></span> <span font='14' color='#98bb6c'>no connection</span>",
+		"tooltip": true,
+		"tooltip-format": "<span font='12' color='#98bb6c'>{ifname}</span>",
+		"tooltip-format-wifi": "<span font='12' color='#98bb6c'>{ifname} strength: {signalStrength}%</span>",
+		"tooltip-format-disconnected": "<span font='12' color='#98bb6c'>zero connection enabled</span>",
+		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+		"on-click": "footclient -a footfloat nmtui"
+	},
+
 	"bluetooth": {
-		"format": "<span font='16' color='#6a9589'>󰂯</span> <span font='14' color='#98bb6c'>{status}</span>",
-		"format-disabled": "<span font='14' color='#6a9589'>󰂲</span> <span font='14' color='#98bb6c'>{status}</span>",
-		"format-connected": "<span font='14' color='#6a9589'>󰂱</span> <span font='14' color='#98bb6c'>{num_connections} connected</span>"
+		"format": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{status}</span>",
+		"format-icons": {
+			"default": "󰂯",
+			"disabled": "󰂲",
+			"connected": "󰂱"
+		},
+		"on-click": "footclient -a footfloat bluetoothctl",
+		"tooltip": false
+
 	},
 
 	"clock": {
-		"format": "<span font='16' color='#6a9589'>󱑎</span> <span font='14' color='#98bb6c'>{:%H:%M}</span>"
+		"format": "<span font='16' color='#938aa9'>󱑎</span> <span font='14' color='#98bb6c'>{:%H:%M}</span>",
+		"tooltip": false
 	},
 
-	"tray": {
-		"icon-size": 15,
-		"spacing": 10
+	"custom/power": {
+		"format": "<span font='16' color='#e6c384'>󰐥</span>",
+		"on-click": "wlogout -b 5 -T 300 -B 300 -p layer-shell",
+		"tooltip": false
 	}
 }

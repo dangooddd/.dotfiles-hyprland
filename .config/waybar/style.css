@@ -1,45 +1,115 @@
 * {
 	font-size: 14px;
-	font-family: 'Cascadia Code';
+	font-family: Cascadia Code;
 }
 
 window#waybar {
-	background-color: rgba(31,31,40,0.95);
-	border-style: solid;
+	background: transparent;
+}
+
+tooltip {
+	background-color: #1f1f28;
+	border-radius: 5px;
 	border-width: 3px;
-	border-radius: 0px;
+	border-style: solid;
 	border-color: #6a9589;
 }
 
 #cpu,
 #memory,
+#window,
+#workspaces,
+#language,
 #pulseaudio,
 #network,
 #bluetooth,
 #clock,
-#tray
-{
-	margin-top: 0px;
+#custom-power
+{	
+	margin-top: 10px;
 	margin-bottom: 0px;
 	padding-left: 10px;
 	padding-right: 10px;
+	border-style: solid;
+	border-color: #6a9589;
+	border-width: 3px;
+	background-color: #1f1f28;
 }
 
 #cpu {
-	margin-left: 10px
+	margin-left: 10px;
+	border-right: none;
+	border-radius: 5px 0px 0px 5px;
 }
 
-#tray {
-	margin-right: 5px;
+#memory {
+	border-left: none;
+	border-radius: 0px 5px 5px 0px;
 }
 
-#network {
-	margin-right: 10px;
-	margin-left: 0px;
+#window {
+	margin-left: 5px;
+	border-radius: 5px;
+	border-color: #938aa9;
+}
+
+window#waybar.empty #window {
+	background: none;
+	border: none;
 }
 
 #workspaces {
-	background-color: rgba(31,31,40,0.95);
-	margin: 5px 5px 5px 5px;
-	padding: 0px 0px 0px 0px;
+	border-radius: 5px;
+	border-color: #938aa9;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#workspaces button {
+	color: #e6c384;
+	background-color: #1f1f28;
+	border-radius: 2px;
+}
+
+#workspaces button.active {
+    	color: #98bb6c;
+	background-color: #1f1f28;
+	border-radius: 2px;
+}
+
+#workspaces button:hover {
+	background-color: #23232c;
+	border-radius: 2px;
+}
+
+#clock {
+	border-right: none;
+	border-radius: 5px 0px 0px 5px;
+}
+
+#language,
+#pulseaudio,
+#bluetooth 
+{	
+	border-radius: 0px;
+	border-left: none;
+	border-right: none;
+}
+
+#network {
+	border-left: none;
+	border-radius: 0px 5px 5px 0px;
+}
+
+#custom-power {
+	margin-right: 10px;
+	margin-left: 5px;
+	padding-left: 13px;
+	padding-right: 13px;
+	border-radius: 5px;
+	border-color: #938aa9;
+}
+
+#custom-power:hover {
+	background-color: #23232c;
 }
