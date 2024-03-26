@@ -1,5 +1,5 @@
 * {
-	font-size: 14px;
+	font-size: 14pt;
 	font-family: Cascadia Code;
 }
 
@@ -15,8 +15,14 @@ tooltip {
 	border-color: #6a9589;
 }
 
+tooltip label {
+	font-size: 14pt;
+	color: #98bb6c;
+}
+
 #cpu,
 #memory,
+#tray,
 #window,
 #workspaces,
 #language,
@@ -45,6 +51,24 @@ tooltip {
 #memory {
 	border-left: none;
 	border-radius: 0px 5px 5px 0px;
+}
+
+#tray {
+	margin-right:  5px;
+	border-radius: 5px;
+	color: #938aa9;
+}
+
+#tray menu {
+	background-color: #1f1f28;
+	border-radius: 5px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #938aa9;
+}
+
+#tray menu menuitem {
+	color: #e6c384;
 }
 
 #window {

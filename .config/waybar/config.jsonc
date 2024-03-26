@@ -19,6 +19,7 @@
 	],
 
 	"modules-right": [
+		"tray",
 		"clock",
 		"hyprland/language",
 		"pulseaudio",
@@ -37,6 +38,11 @@
 		"interval": 10,
 		"format": "<span font='14' color='#938aa9'>RAM</span> <span font='14' color='#98bb6c'>{used} GiB</span>",
 		"tooltip": false
+	},
+
+	"tray": {
+		"icon-size": 16,
+		"spacing": 10
 	},
 
 	"hyprland/window": {
@@ -75,7 +81,8 @@
 			"car": "󰄋",
 			"default": ["󰕿", "󰖀", "󰕾"]
 		},
-		"tooltip": false
+		"tooltip": true,
+		"tooltip-format": "{desc}"
 	},
 
 	"network": {
@@ -84,9 +91,9 @@
 		"format-ethernet": "<span font='16' color='#938aa9'>󰈀</span> <span font='14' color='#98bb6c'>{essid}</span>",
 		"format-disconnected": "<span font='16' color='#938aa9'></span> <span font='14' color='#98bb6c'>no connection</span>",
 		"tooltip": true,
-		"tooltip-format": "<span font='12' color='#98bb6c'>{ifname}</span>",
-		"tooltip-format-wifi": "<span font='12' color='#98bb6c'>{ifname} strength: {signalStrength}%</span>",
-		"tooltip-format-disconnected": "<span font='12' color='#98bb6c'>zero connection enabled</span>",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{ifname} strength: {signalStrength}%",
+		"tooltip-format-disconnected": "zero connection enabled",
 		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
 		"on-click": "footclient -a footfloat nmtui"
 	},
@@ -99,7 +106,10 @@
 			"connected": "󰂱"
 		},
 		"on-click": "footclient -a footfloat bluetoothctl",
-		"tooltip": false
+		"tooltip": true,
+		"tooltip-format": "bluetooth: {status}",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}: {device_address}"
 
 	},
 
