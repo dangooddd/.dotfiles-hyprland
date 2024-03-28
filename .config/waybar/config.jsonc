@@ -11,6 +11,9 @@
 	"modules-left": [
 		"cpu",
 		"memory",
+		"custom/mako",
+		"custom/spacer",
+		"tray",
 		"hyprland/window"
 	],
 
@@ -19,9 +22,9 @@
 	],
 
 	"modules-right": [
-		"tray",
 		"clock",
 		"hyprland/language",
+		"pulseaudio#source",
 		"pulseaudio",
 		"bluetooth",
 		"network",
@@ -40,9 +43,21 @@
 		"tooltip": false
 	},
 
-	"tray": {
-		"icon-size": 16,
-		"spacing": 10
+	"custom/mako": {
+		"exec": "$HOME/.config/waybar/scripts/mako-custom.sh get-status",
+		"exec-on-event": true,
+		"return-type": "json",
+		"interval": 60,
+		"signal": 10,
+		"format": "<span font='16' color='#b16286'>{icon}</span>",
+		"format-icons": ["󱇦", "󱏬"],
+		"on-click": "$HOME/.config/waybar/scripts/mako-custom.sh toggle-silent; pkill -SIGRTMIN+10 waybar",
+		"tooltip": true
+	},
+
+	"custom/spacer": {
+		"format": "|",
+		"tooltip": false
 	},
 
 	"hyprland/window": {
@@ -64,8 +79,28 @@
 		"sort-by-number": true
 	},
 
+	"tray": {
+		"icon-size": 16,
+		"spacing": 10
+	},
+
+	"clock": {
+		"format": "<span font='16' color='#938aa9'>󱑎</span> <span font='14' color='#98bb6c'>{:%H:%M}</span>",
+		"tooltip": false
+	},
+
 	"hyprland/language": {
 		"format": "<span font='16' color='#938aa9'>󰥻</span> <span font='14' color='#98bb6c'>{short}</span>"
+	},
+
+	"pulseaudio#source": {
+		"format": "{format_source}",
+		"format-source": "<span font='16' color='#938aa9'>󰍬</span> <span font='14' color='#98bb6c'>{volume}%</span>",
+		"format-source-muted": "<span font='16' color='#938aa9'>󰍬</span> <span font='14' color='#98bb6c'>off</span>",
+		"on-click": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source -i 5",
+		"on-scroll-down": "pamixer --default-source -d 5",
+		"tooltip": false
 	},
 	
 	"pulseaudio": {
@@ -85,19 +120,6 @@
 		"tooltip-format": "{desc}"
 	},
 
-	"network": {
-		"format": "<span font='16' color='#938aa9'>󱘖</span> <span font='14' color='#98bb6c'>{ifname}</span>",
-		"format-wifi": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{essid}</span>",
-		"format-ethernet": "<span font='16' color='#938aa9'>󰈀</span> <span font='14' color='#98bb6c'>{essid}</span>",
-		"format-disconnected": "<span font='16' color='#938aa9'></span> <span font='14' color='#98bb6c'>no connection</span>",
-		"tooltip": true,
-		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{ifname} strength: {signalStrength}%",
-		"tooltip-format-disconnected": "zero connection enabled",
-		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
-		"on-click": "footclient -a footfloat nmtui"
-	},
-
 	"bluetooth": {
 		"format": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{status}</span>",
 		"format-icons": {
@@ -113,13 +135,21 @@
 
 	},
 
-	"clock": {
-		"format": "<span font='16' color='#938aa9'>󱑎</span> <span font='14' color='#98bb6c'>{:%H:%M}</span>",
-		"tooltip": false
+	"network": {
+		"format": "<span font='16' color='#938aa9'>󱘖</span> <span font='14' color='#98bb6c'>{ifname}</span>",
+		"format-wifi": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{essid}</span>",
+		"format-ethernet": "<span font='16' color='#938aa9'>󰈀</span> <span font='14' color='#98bb6c'>{essid}</span>",
+		"format-disconnected": "<span font='16' color='#938aa9'></span> <span font='14' color='#98bb6c'>no connection</span>",
+		"tooltip": true,
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{ifname} strength: {signalStrength}%",
+		"tooltip-format-disconnected": "zero connection enabled",
+		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+		"on-click": "footclient -a footfloat nmtui"
 	},
 
 	"custom/power": {
-		"format": "<span font='16' color='#e6c384'>󰐥</span>",
+		"format": "<span font='18' color='#b16286'>󰐥</span>",
 		"on-click": "wlogout -b 5 -T 300 -B 300 -p layer-shell",
 		"tooltip": false
 	}

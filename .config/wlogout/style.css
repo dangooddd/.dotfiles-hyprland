@@ -1,33 +1,35 @@
 window {
     	font-family: Cascadia Code;
     	font-size: 20pt;
-   	background-color: rgba(31, 31, 40, 0.75);
+   	background-color: rgba(31, 31, 40, 0.85);
 }
 
+@define-color laz #6a9589;
+@define-color mag #938aa9;
+@define-color pur #b16286;
+@define-color yel #e6c384;
+@define-color bg #1f1f28;
+
 button {
-	color: #98bb6c;
+	color: @yel;
     	background-repeat: no-repeat;
     	background-position: center;
     	background-size: 50%;
     	border-style: solid;
     	border-radius: 5px;
     	border-width: 3px;
-    	border-color: #938aa9;
+    	border-color: @mag;
     	background-color: rgba(31, 31, 40, 0.95);
     	margin: 10px;
     	transition:
         	background-color 0.2s ease-in-out;
 }
 
-button:hover {
-    	background-color: rgba(35, 35, 45, 0.95);
-}
-
 button:active,
 button:focus {
-    	background-color: #98bb6c;
-    	color: #1f1f28;
-	border-color: #ebdbb2;
+    	background-color: @pur;
+    	color: @bg;
+	border-color: @mag;
 }
 
 #logout {

@@ -24,7 +24,7 @@
 }
 {
 	"label": "lock",
-	"action": "hyprlock",
+	"action": "pidof hyprlock || hyprlock",
 	"text": "  Lock (L)  ",
 	"keybind": "l"
 }
