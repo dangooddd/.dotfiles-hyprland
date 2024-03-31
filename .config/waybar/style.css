@@ -50,7 +50,7 @@ tooltip {
     border-radius: 5px;
     border-width: 3px;
     border-style: solid;
-    border-color: @mag;
+    border-color: @bld;
 }
 
 tooltip label {
