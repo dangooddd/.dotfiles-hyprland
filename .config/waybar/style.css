@@ -1,20 +1,20 @@
 * {
-    	font-size: 14pt;
-    	font-family: Cascadia Code;
+    font-size: 14pt;  
 }
 
 @define-color laz #6a9589;
 @define-color mag #938aa9;
 @define-color gre #98bb6c;
 @define-color yel #e6c384;
-@define-color blu #458588;
+@define-color bld #565f89;
 @define-color pur #b16286;
 @define-color bg #1f1f28;
 @define-color bgh #23232c;
 
 /* main window */
 window#waybar {
-    	background: transparent;
+    font-family: Cascadia Code;
+    background: transparent;
 }
 
 /* global modules style */
@@ -30,160 +30,187 @@ window#waybar {
 #bluetooth,
 #network,
 #custom-power {
-    	margin-top: 10px;
-    	margin-bottom: 0px;
-    	padding-left: 10px;
-    	padding-right: 10px;
-		border-style: solid;
-    	border-width: 3px;
-    	background-color: @bg;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: solid;
+    border-width: 3px;
+    background-color: @bg;
 }
 
 /* tooltip */
+tooltip * {
+    font-family: Inter;
+    font-weight: 500;
+}
+
 tooltip {
-    	background-color: @bg;
-    	border-radius: 5px;
-    	border-width: 3px;
-    	border-style: solid;
-    	border-color: @mag;
+    background-color: @bg;
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: @mag;
 }
 
 tooltip label {
-    	color: @yel;
+    color: @yel;
 }
 
 /* window */
 #window {
-    	margin-left: 5px;
-    	border-radius: 5px;
-    	border-color: @mag;
+    font-family: Inter;
+    margin-left: 5px;
+    border-radius: 5px;
+    border-color: @mag;
 }
 
 window#waybar.empty #window {
-    	background: none;
-    	border: none;
+    background: none;
+    border: none;
 }
 
 /* workspaces */
 #workspaces {
-    	border-radius: 5px;
-    	border-color: @mag;
-    	padding-left: 0px;
-    	padding-right: 0px;
+    border-radius: 5px;
+    border-color: @mag;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #workspaces button {
-    	color: @yel;
-    	background-color: @bg;
-		border-radius: 2px;
+    color: @yel;
+    background-color: @bg;
+    border-radius: 2px;
 }
 
 #workspaces button.active {
-    	color: @gre;
+    color: @gre;
 }
 
 /* tray */
 #tray {
-		border-left: none;
-    	border-radius: 0px 5px 5px 0px;
-    	border-color: @blu;
+    margin-left: 5px;
+    border-radius: 5px;
+    border-color: @bld;
+}
+
+#tray menu * {
+    font-family: Inter;
+    font-weight: 500;
 }
 
 #tray menu {
-    	background-color: @bg;
-    	border-radius: 5px;
-   		border-width: 3px;
-    	border-style: solid;
-    	border-color: @mag;
+    background-color: @bg;
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: @bld;
 }
 
 #tray menu menuitem {
-		color: @yel;
+    border-radius: 5px;
+    color: @yel;
+    box-shadow: none;
+    transition: none;
+}
+
+#tray menu menuitem:hover {
+    background-color: @bg;
+    box-shadow: inset 0 0 0 100px rgba(177, 98, 134, 0.1);
 }
 
 /* modules exclude window, workspaces, tray*/
 #cpu {
-		margin-left: 10px;
-		border-right: none;
-		border-radius: 5px 0px 0px 5px;
-		border-color: @laz;
+    margin-left: 10px;
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #memory {
-		border-left: none;
-		border-radius: 0px 5px 5px 0px;
-		border-color: @laz;
+    border-right: none;
+    border-left: none;
+    border-radius: 0px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #custom-mako {
-		border-right: none;
-		border-radius: 5px 0px 0px 5px;
-		margin-left: 5px;
-		border-color: @blu;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    border-color: @laz;
 }
 
 #custom-spacer {
-		margin-top: 10px;
-		margin-bottom: 0px;
-		border-width: 3px;
-		border-right: none;
-		border-left: none;
-		border-color: @blu;
-		border-radius: 0px;
-		border-style: solid;
-		background-color: @bg;
-		padding-left: 0px;
-		padding-right: 0px;
-		color: @mag;
-		font-size: 16pt;
-		font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border-width: 3px;
+    border-right: none;
+    border-left: none;
+    border-color: @laz;
+    border-radius: 0px;
+    border-style: solid;
+    background-color: @bg;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: @mag;
+    font-size: 16pt;
+    font-weight: bold;
 }
 
 #clock {
-		border-right: none;
-		border-radius: 5px 0px 0px 5px;
-		border-color: @laz;
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #language {
-    	border-left: none;
-    	border-right: none;
-    	border-radius: 0px;
-    	border-color: @laz;
-}
-
-#pulseaudio {
-    	border-left: none;
-    	border-right: none;
-    	border-radius: 0px;
-    	border-color: @laz;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #pulseaudio.source {
-		border-left: none;
-		border-right: none;
-		border-radius: 0px;
-		border-color: @laz;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    border-color: @laz;
+    color: @gre;
+}
+
+#pulseaudio {
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #bluetooth {
-    	border-left: none;
-    	border-right: none;
-    	border-radius: 0px;
-    	border-color: @laz;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #network {
-    	border-left: none;
-    	border-radius: 0px 5px 5px 0px;
-    	border-color: @laz;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    border-color: @laz;
+    color: @gre;
 }
 
 #custom-power {
-    	margin-left: 5px;
-    	margin-right: 10px;
-    	border-radius: 5px;
-    	border-color: @mag;
-    	padding-left: 11px;
-    	padding-right: 11px;
+    margin-left: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border-color: @mag;
+    padding-left: 11px;
+    padding-right: 11px;
 }

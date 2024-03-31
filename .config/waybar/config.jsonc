@@ -1,45 +1,45 @@
 {
-	"position": "top",
-	"layer": "top",
-	"gtk-layer-shell": true,
-	"height": 50,
-	"margin-top": 0,
-	"margin-bottom": 0,
-	"margin-left": 0,
-	"margin-right": 0,
+    "position": "top",
+    "layer": "top",
+    "gtk-layer-shell": true,
+    "height": 50,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    
+    "modules-left": [
+        "cpu",
+        "memory",
+        "custom/spacer",
+        "custom/mako",
+        "tray",
+        "hyprland/window"
+    ],
 
-	"modules-left": [
-		"cpu",
-		"memory",
-		"custom/mako",
-		"custom/spacer",
-		"tray",
-		"hyprland/window"
-	],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
 
-	"modules-center": [
-		"hyprland/workspaces"
-	],
-
-	"modules-right": [
-		"clock",
-		"hyprland/language",
-		"pulseaudio#source",
-		"pulseaudio",
-		"bluetooth",
-		"network",
-		"custom/power"
-	],
+    "modules-right": [
+        "clock",
+        "hyprland/language",
+        "pulseaudio#source",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "custom/power"
+    ],
 
 	"cpu": {
 		"interval": 10,
-		"format": "<span font='14' color='#938aa9'>CPU</span> <span font='14' color='#98bb6c'>{usage}%</span>",
+		"format": "<span font='14' color='#938aa9'>CPU</span> {usage}%",
 		"tooltip": false
 	},
 
 	"memory": {
 		"interval": 10,
-		"format": "<span font='14' color='#938aa9'>RAM</span> <span font='14' color='#98bb6c'>{used} GiB</span>",
+		"format": "<span font='14' color='#938aa9'>RAM</span> {used} GiB",
 		"tooltip": false
 	},
 
@@ -61,7 +61,7 @@
 	},
 
 	"hyprland/window": {
-		"format": "<span font='14' color='#e6c384'>{}</span>",
+		"format": "<span weight='500' color='#e6c384'>{}</span>",
 		"max-length": 20
 	},
 
@@ -85,18 +85,18 @@
 	},
 
 	"clock": {
-		"format": "<span font='16' color='#938aa9'>󱑎</span> <span font='14' color='#98bb6c'>{:%H:%M}</span>",
+		"format": "<span font='16' color='#938aa9'>󱑎</span> {:%H:%M}",
 		"tooltip": false
 	},
 
 	"hyprland/language": {
-		"format": "<span font='16' color='#938aa9'>󰥻</span> <span font='14' color='#98bb6c'>{short}</span>"
+		"format": "<span font='16' color='#938aa9'>󰥻</span> {short}"
 	},
 
 	"pulseaudio#source": {
 		"format": "{format_source}",
-		"format-source": "<span font='16' color='#938aa9'>󰍬</span> <span font='14' color='#98bb6c'>{volume}%</span>",
-		"format-source-muted": "<span font='16' color='#938aa9'>󰍬</span> <span font='14' color='#98bb6c'>off</span>",
+		"format-source": "<span font='16' color='#938aa9'>󰍬</span> {volume}%",
+		"format-source-muted": "<span font='16' color='#938aa9'>󰍬</span> off",
 		"on-click": "pamixer --default-source -t",
 		"on-scroll-up": "pamixer --default-source -i 5",
 		"on-scroll-down": "pamixer --default-source -d 5",
@@ -104,8 +104,8 @@
 	},
 	
 	"pulseaudio": {
-		"format": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{volume}%</span>",
-		"format-muted": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>off</span>",
+		"format": "<span font='16' color='#938aa9'>{icon}</span> {volume}%",
+		"format-muted": "<span font='16' color='#938aa9'>{icon}</span> off",
 		"on-click": "pamixer -t",
 		"on-scroll-up": "pamixer -i 5",
 		"on-scroll-down": "pamixer -d 5",
@@ -121,7 +121,7 @@
 	},
 
 	"bluetooth": {
-		"format": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{status}</span>",
+		"format": "<span font='16' color='#938aa9'>{icon}</span> {status}",
 		"format-icons": {
 			"default": "󰂯",
 			"disabled": "󰂲",
@@ -136,10 +136,10 @@
 	},
 
 	"network": {
-		"format": "<span font='16' color='#938aa9'>󱘖</span> <span font='14' color='#98bb6c'>{ifname}</span>",
-		"format-wifi": "<span font='16' color='#938aa9'>{icon}</span> <span font='14' color='#98bb6c'>{essid}</span>",
-		"format-ethernet": "<span font='16' color='#938aa9'>󰈀</span> <span font='14' color='#98bb6c'>{essid}</span>",
-		"format-disconnected": "<span font='16' color='#938aa9'></span> <span font='14' color='#98bb6c'>no connection</span>",
+		"format": "<span font='16' color='#938aa9'>󱘖</span> {ifname}",
+		"format-wifi": "<span font='16' color='#938aa9'>{icon}</span> {essid}",
+		"format-ethernet": "<span font='16' color='#938aa9'>󰈀</span> {essid}",
+		"format-disconnected": "<span font='16' color='#938aa9'></span> no connection",
 		"tooltip": true,
 		"tooltip-format": "{ifname}",
 		"tooltip-format-wifi": "{ifname} strength: {signalStrength}%",

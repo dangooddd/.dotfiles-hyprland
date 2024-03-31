@@ -1,4 +1,4 @@
-font=Cascadia Code 14
+font=Inter 15
 width=400
 height=150
 max-visible=4
@@ -7,7 +7,7 @@ anchor=top-right
 default-timeout=3000
 max-icon-size=24
 icon-path=/usr/share/icons/Papipus-Dark
-format=<span weight='bold' font='16' color='#938aa9'>%s</span>\n%b
+format=<span weight='bold' font='16' color='#938aa9'>%s</span>\n<span weight='500'>%b</span>
 
 icons=1
 markup=1
@@ -18,13 +18,13 @@ ignore-timeout=0
 background-color=#1f1f28ff
 text-color=#98bb6cff
 progress-color=#b16286ff
-border-color=#6a9589ff
+border-color=#b16286ff
 border-size=3
 border-radius=5
 padding=5,10,5
 
 [urgency=high]
-format=<span weight='bold' font='16' color='#b16286'>%s</span>\n%b
+format=<span weight='bold' font='16' color='#b16286'>%s</span>\n<span weight='500'>%b</span>
 text-color=#e6c384ff
 border-color=#c34043ff
 
