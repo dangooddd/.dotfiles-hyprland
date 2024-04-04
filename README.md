@@ -19,6 +19,20 @@ Just another Wayland rice, made by me :)
 * **Code Editor:** [NeoVim](https://github.com/neovim/neovim) with [NvChad](https://github.com/NvChad/NvChad) config
 * **Font:** [Inter](https://github.com/rsms/inter) as UI font and [Cascadia Code Nerd](https://github.com/microsoft/cascadia-code) as monospace font
 
+## <span style="color:#b16286">Packages</span>
+### <span style="color:#e6c384">Fedora</span>
+Enable some copr repos:
+```bash 
+sudo dnf copr enable atim/starship
+sudo dnf copr enable che/nerd-fonts
+sudo dnf copr enable tofik/nwg-shell
+sudo dnf copr enable solopasha/hyprland
+```
+Then install packages:
+```bash
+sudo dnf install cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts starship nwg-look kvantum zoxide foot fuzzel mako waybar wlogout neovim hyprland-git hyprpaper hyprlock hypridle
+```
+
 ## <span style="color:#b16286">Installation</span>
 
 ### <span style="color:#e6c384">Download</span>
@@ -45,7 +59,7 @@ cd .dotfiles
 ./install.sh
 ```
 
-If you want to delete your old config files that was moved to .bak files:
+If you want to delete your old configs that was moved to .bak dirs:
 ```bash
 ./clean.sh
 ```
