@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+# This script will symlink all directories 
+# from .dotfiles/.config/ to ~/.config/, so you
+# can change it everywhere. If some configs exist,
+# script will move it to .bak, so you can restore it 
+
 spath="$(dirname $(readlink -f $0))"
 dpath="$HOME"
 separator="--------------------------"
@@ -10,12 +15,14 @@ printf "\n\033[31;1mStarting installation!\033[0m\n\n"
 configs=$(ls $spath/.config/)
 printf "\033[32;1mConfig installation\033[0m\n"
 printf "\033[35;1m%s\033[0m\n" $separator
+# creating of .config if it doesnt exist
 if ! test -d "$dpath/.config"; then 
     mkdir "$dpath/.config"
     printf ".config does not exist, creating it!\n\n"
 fi
 for d in $configs
 do
+    # check if config directory exist
     if test -d "$dpath/.config/$d"; then
         if test -d "$dpath/.config/$d.bak"; then
             if test -L "$dpath/.config/$d.bak"; then
@@ -25,6 +32,7 @@ do
             fi
             printf "Remove old %s.bak!\n" $d
         fi
+        # move existing config to config.bak
         mv "$dpath/.config/$d" "$dpath/.config/$d.bak"
         printf "Move existing %s config to %s.bak!\n" $d $d
     fi

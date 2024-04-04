@@ -28,9 +28,13 @@ sudo dnf copr enable che/nerd-fonts
 sudo dnf copr enable tofik/nwg-shell
 sudo dnf copr enable solopasha/hyprland
 ```
-Then install packages:
+Then install packages (including some quality of life packages):
 ```bash
-sudo dnf install cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts starship nwg-look kvantum zoxide foot fuzzel mako waybar wlogout neovim hyprland-git hyprpaper hyprlock hypridle
+sudo dnf install cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts starship nwg-look kvantum qt6ct zoxide foot fuzzel mako waybar wlogout neovim hyprpaper hyprlock hypridle
+```
+And finally install hyprland:
+```bash 
+sudo dnf install hyprland-git --exclude kitty
 ```
 
 ## <span style="color:#b16286">Installation</span>
@@ -43,15 +47,15 @@ git clone https://github.com/dangooddd/.dotfiles.git
 ### <span style="color:#e6c384">Manual</span>
 For all config dirs you want to install:
 ```bash
-ln -s /path/to/folder/.config/config_dir $HOME/.config 
+ln -s /path/to/.dotfiles/.config/config_dir $HOME/.config/ 
 ```
 If you want to use gtk theme of my choice:
 ```bash
-ln -s /path/to/folder/.themes $HOME/.themes
+ln -s /path/to/.dotfiles/.themes $HOME/
 ```
 
 ### <span style="color:#c34043">WARNING!</span>
-Method below may be dangerous! It can delete some files from your .config and .themes dirs, so read code and make decision!
+Method below may be dangerous! Some files from your .config and .themes directories can be deleted, so read code and make your decision!
 
 ### <span style="color:#e6c384">Via script</span>
 ```bash
@@ -59,7 +63,7 @@ cd .dotfiles
 ./install.sh
 ```
 
-If you want to delete your old configs that was moved to .bak dirs:
+If you want to delete your old configs that was moved to .bak directories:
 ```bash
 ./clean.sh
 ```
