@@ -60,4 +60,23 @@ ln -s "$spath/.themes" "$dpath/.themes"
 printf "Symlink .themes folder\n"
 printf "\033[35;1m%s\033[0m\n" $separator
 
+# .scripts install
+printf "\n\033[32;1mScripts installation\033[0m\n"
+printf "\033[35;1m%s\033[0m\n" $separator
+if test -d "$dpath/.scripts"; then
+    if test -d "$dpath/.scripts.bak"; then
+        if test -L "$dpath/.scripts.bak"; then
+            rm "$dpath/.scripts.bak"
+        else
+            rm -r "$dpath/.scripts.bak"
+        fi
+        printf "Remove old .scripts.bak!\n"
+    fi
+    mv "$dpath/.scripts" "$dpath/.scripts.bak"
+    printf "Move existing .scripts folder to .scripts.bak!\n"
+fi
+ln -s "$spath/.scripts" "$dpath/.scripts"
+printf "Symlink .scripts folder\n"
+printf "\033[35;1m%s\033[0m\n" $separator
+
 printf "\n\033[31;1mEnd of installation!\033[0m\n"

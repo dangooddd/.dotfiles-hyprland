@@ -150,7 +150,7 @@
 
 	"custom/power": {
 		"format": "<span font='18' color='#b16286'>󰐥</span>",
-		"on-click": "wlogout -b 5 -T 300 -B 300 -p layer-shell",
+		"on-click": "$HOME/.scripts/logout.sh",
 		"tooltip": false
 	}
 }

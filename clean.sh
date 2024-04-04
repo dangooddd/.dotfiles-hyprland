@@ -11,7 +11,7 @@ dpath="$HOME"
 
 printf "\n\033[32;1mStart of cleaning backups!\033[0m\n\n"
 
-# Config install
+# .config cleaning
 configs=$(ls $spath/.config/)
 for d in $configs
 do
@@ -27,7 +27,7 @@ do
     fi
 done
 
-# .themes install
+# .themes cleaning
 if test -d "$dpath/.themes.bak"; then
     if test -L "$dpath/.themes.bak"; then
         rm "$dpath/.themes.bak"
@@ -35,6 +35,16 @@ if test -d "$dpath/.themes.bak"; then
         rm -r "$dpath/.themes.bak"
     fi
     printf "Remove .themes.bak!\n"
+fi 
+
+# .scripts cleaning
+if test -d "$dpath/.scripts.bak"; then
+    if test -L "$dpath/.scripts.bak"; then
+        rm "$dpath/.scripts.bak"
+    else
+        rm -r "$dpath/.scripts.bak"
+    fi
+    printf "Remove .scripts.bak!\n"
 fi 
 
 printf "\n\033[32;1mEnd of cleaning backups!\033[0m\n"
