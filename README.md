@@ -1,5 +1,5 @@
 # <span style="color:#938aa9">dangooddd linux dotfiles</span>
-Just another Wayland rice, made by me :)
+Minimal setup for work by dangooddd
 
 ## <span style="color:#b16286">Look</span>
 
@@ -45,7 +45,7 @@ git clone https://github.com/dangooddd/.dotfiles.git
 ```
 
 ### <span style="color:#e6c384">Manual</span>
-For all config dirs you want to install:
+Copy or symlink all config directories you want to install:
 ```bash
 ln -s /path/to/.dotfiles/.config/config_dir $HOME/.config/ 
 ```
