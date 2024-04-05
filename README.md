@@ -54,10 +54,9 @@ If you want to use gtk theme of my choice:
 ln -s /path/to/.dotfiles/.themes $HOME/
 ```
 
-### <span style="color:#c34043">WARNING!</span>
-Method below may be dangerous! Some files from your .config and .themes directories can be deleted, so read code and make your decision!
-
 ### <span style="color:#e6c384">Via script</span>
+> [!Warning]
+> Method below may be dangerous! Some files from your .config and .themes directories can be deleted, so read code and make your decision!
 ```bash
 cd .dotfiles
 ./install.sh
