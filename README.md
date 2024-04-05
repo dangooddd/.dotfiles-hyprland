@@ -1,11 +1,9 @@
-# <span style="color:#938aa9">dangooddd linux dotfiles</span>
+# dangooddd linux dotfiles
 Minimal setup for work by dangooddd
-
-## <span style="color:#b16286">Look</span>
 
 <img align="center" src="./screenshots/look.png">
 
-## <span style="color:#b16286">Configurations</span> 
+## Configurations 
 * **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland)
 * **Terminal:** [foot](https://codeberg.org/dnkl/foot)
 * **App Launcher:** [fuzzel](https://codeberg.org/dnkl/fuzzel)
@@ -37,14 +35,14 @@ And finally install hyprland:
 sudo dnf install hyprland-git --exclude kitty
 ```
 
-## <span style="color:#b16286">Installation</span>
+## Installation
 
-### <span style="color:#e6c384">Download</span>
+### Download
 ```bash
 git clone https://github.com/dangooddd/.dotfiles.git
 ```
 
-### <span style="color:#e6c384">Manual</span>
+### Manual
 Copy or symlink all config directories you want to install:
 ```bash
 ln -s /path/to/.dotfiles/.config/config_dir $HOME/.config/ 
@@ -54,7 +52,7 @@ If you want to use gtk theme of my choice:
 ln -s /path/to/.dotfiles/.themes $HOME/
 ```
 
-### <span style="color:#e6c384">Via script</span>
+### Via script
 > [!Warning]
 > Method below may be dangerous! Some files from your .config and .themes directories can be deleted, so read code and make your decision!
 ```bash
