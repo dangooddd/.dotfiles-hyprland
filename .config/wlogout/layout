@@ -19,7 +19,7 @@
 {
     "label": "suspend",
     "action": "systemctl suspend",
-    "text": " Suspend (Z)",
+    "text": "  Sleep (Z) ",
     "keybind": "z"
 }
 {

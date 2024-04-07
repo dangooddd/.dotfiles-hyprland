@@ -16,17 +16,17 @@ invisible=0
 ignore-timeout=0
 
 background-color=#1f1f28ff
-text-color=#98bb6cff
-progress-color=#b16286ff
-border-color=#b16286ff
+text-color=#a7c090ff
+progress-color=#e67e80ff
+border-color=#e69875ff
 border-size=3
 border-radius=5
 padding=5,10,5
 
 [urgency=high]
-format=<span weight='bold' font='16' color='#b16286'>%s</span>\n<span weight='500'>%b</span>
-text-color=#e6c384ff
-border-color=#c34043ff
+format=<span weight='bold' font='16' color='#e69875'>%s</span>\n<span weight='500'>%b</span>
+text-color=#dbbc7fff
+border-color=#e67e80ff
 
 [mode=silent]
 invisible=1

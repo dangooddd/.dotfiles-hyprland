@@ -49,7 +49,7 @@
 		"return-type": "json",
 		"interval": 60,
 		"signal": 10,
-		"format": "<span font='16' color='#b16286'>{icon}</span>",
+		"format": "<span font='16' color='#e67e80'>{icon}</span>",
 		"format-icons": ["󱇦", "󱏬"],
 		"on-click": "$HOME/.config/waybar/scripts/mako-custom.sh toggle-silent; pkill -SIGRTMIN+10 waybar",
 		"tooltip": true
@@ -149,7 +149,7 @@
 	},
 
 	"custom/power": {
-		"format": "<span font='18' color='#b16286'>󰐥</span>",
+		"format": "<span font='18' color='#e67e80'>󰐥</span>",
 		"on-click": "$HOME/.scripts/logout.sh",
 		"tooltip": false
 	}

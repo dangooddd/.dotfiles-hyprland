@@ -2,12 +2,13 @@
     font-size: 14pt;  
 }
 
-@define-color laz #6a9589;
-@define-color mag #938aa9;
-@define-color gre #98bb6c;
-@define-color yel #e6c384;
-@define-color bld #565f89;
-@define-color pur #b16286;
+@define-color col1 #6a9589;
+@define-color col2 #938aa9;
+@define-color col3 #a7c090;
+@define-color col4 #dbbc7f;
+@define-color col5 #859289;
+@define-color col6 #0b0f10;
+@define-color fg #d3c6aa;
 @define-color bg #1f1f28;
 @define-color bgh #23232c;
 
@@ -50,11 +51,11 @@ tooltip {
     border-radius: 5px;
     border-width: 3px;
     border-style: solid;
-    border-color: @bld;
+    border-color: @col6;
 }
 
 tooltip label {
-    color: @yel;
+    color: @fg;
 }
 
 /* window */
@@ -62,7 +63,7 @@ tooltip label {
     font-family: Inter;
     margin-left: 5px;
     border-radius: 5px;
-    border-color: @mag;
+    border-color: @col6;
 }
 
 window#waybar.empty #window {
@@ -73,20 +74,21 @@ window#waybar.empty #window {
 /* workspaces */
 #workspaces {
     border-radius: 5px;
-    border-color: @mag;
+    border-color: @col6;
     padding-left: 0px;
     padding-right: 0px;
 }
 
 #workspaces button {
-    color: @yel;
+    color: @col4;
     background-color: @bg;
     border-radius: 2px;
     box-shadow: none;
+    transition: none;
 }
 
 #workspaces button.active {
-    color: @gre;
+    color: @col3;
 }
 
 #workspaces button:hover {
@@ -102,7 +104,7 @@ window#waybar.empty #window {
 #tray {
     margin-left: 5px;
     border-radius: 5px;
-    border-color: @bld;
+    border-color: @col6;
 }
 
 #tray menu * {
@@ -115,12 +117,12 @@ window#waybar.empty #window {
     border-radius: 5px;
     border-width: 3px;
     border-style: solid;
-    border-color: @bld;
+    border-color: @col6;
 }
 
 #tray menu menuitem {
     border-radius: 5px;
-    color: @yel;
+    color: @fg;
     box-shadow: none;
     transition: none;
 }
@@ -135,22 +137,22 @@ window#waybar.empty #window {
     margin-left: 10px;
     border-right: none;
     border-radius: 5px 0px 0px 5px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #memory {
     border-right: none;
     border-left: none;
     border-radius: 0px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #custom-mako {
     border-left: none;
     border-radius: 0px 5px 5px 0px;
-    border-color: @laz;
+    border-color: @col6;
 }
 
 #custom-spacer {
@@ -159,13 +161,13 @@ window#waybar.empty #window {
     border-width: 3px;
     border-right: none;
     border-left: none;
-    border-color: @laz;
+    border-color: @col6;
     border-radius: 0px;
     border-style: solid;
     background-color: @bg;
     padding-left: 0px;
     padding-right: 0px;
-    color: @mag;
+    color: @col2;
     font-size: 16pt;
     font-weight: bold;
 }
@@ -173,54 +175,54 @@ window#waybar.empty #window {
 #clock {
     border-right: none;
     border-radius: 5px 0px 0px 5px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #language {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #pulseaudio.source {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #pulseaudio {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #bluetooth {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #network {
     border-left: none;
     border-radius: 0px 5px 5px 0px;
-    border-color: @laz;
-    color: @gre;
+    border-color: @col6;
+    color: @col3;
 }
 
 #custom-power {
     margin-left: 5px;
     margin-right: 10px;
     border-radius: 5px;
-    border-color: @mag;
+    border-color: @col6;
     padding-left: 11px;
     padding-right: 11px;
 }

@@ -1,86 +1,82 @@
+* {
+    box-shadow: none;
+    border: none;
+}
+
 window {
     font-family: Cascadia Code;
     font-size: 20pt;
     background-color: rgba(31, 31, 40, 0.85);
 }
 
-@define-color laz #6a9589;
-@define-color mag #938aa9;
-@define-color gre #98bb6c;
-@define-color pur #b16286;
-@define-color yel #e6c384;
-@define-color bld #565f89;
+@define-color col1 #6a9589;
+@define-color col2 #938aa9;
+@define-color col3 #a7c090;
+@define-color col3d #96b47b;
+@define-color sha1 #85a865;
+@define-color sha1d #749655;
+@define-color col4 #b16286;
+@define-color col5 #dbbc7f;
+@define-color col5d #d3ae64;
+@define-color sha2 #cca049;
+@define-color sha2d #bd8f35;
+@define-color col6 #565f89;
+@define-color col7 #859289;
 @define-color bg #1f1f28;
 
 button {
-    color: @yel;
+    color: @bg;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 20px;
     border-width: 3px;
-    border-color: @mag;
-    background-color: rgba(31, 31, 40, 0.95);
-    margin: 10px;
-    box-shadow: none;
+    border-color: @bg;
+    border-bottom: none;
+    border-left: none;
+    background-color: @col3;
+    margin: 15px;
+    box-shadow: 12px -10px @sha1;
     transition:
-        background-color 0.05s ease-in-out;
+        box-shadow 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
 }
 
 button:active,
 button:focus {
-    background-color: @bld;
-    border-color: @mag;
+    background-color: @col5;
+    border-color: @bg;
     color: @bg;
+    box-shadow: 12px -10px @sha2;
 }
 
 button:hover {
-    background-color: rgba(31, 31, 40, 0.95);
-    box-shadow: inset 0 0 0 300px rgba(147, 138, 169, 0.05);
+    background-color: @col3d;
+    box-shadow: 12px -10px @sha1d;
 }
 
 button:focus:hover {
-    background-color: @bld;
-    box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.1);
+    background-color: @col5d;
+    box-shadow: 12px -10px @sha2d;
 }
 
 #logout {
     background-image: image(url("./icons/logout.png"));
 }
 
-#logout:focus {
-    background-image: image(url("./icons/logout-hover.png"));
-}
-
 #suspend {
     background-image: image(url("./icons/sleep.png"));
-}
-
-#suspend:focus {
-    background-image: image(url("./icons/sleep-hover.png"));
 }
 
 #shutdown {
     background-image: image(url("./icons/power.png"));
 }
 
-#shutdown:focus {
-    background-image: image(url("./icons/power-hover.png"));
-}
-
 #reboot {
     background-image: image(url("./icons/restart.png"));
 }
 
-#reboot:focus {
-    background-image: image(url("./icons/restart-hover.png"));
-}
-
 #lock {
     background-image: image(url("./icons/lock.png"));
-}
-
-#lock:focus {
-    background-image: image(url("./icons/lock-hover.png"));
 }
