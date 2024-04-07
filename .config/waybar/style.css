@@ -93,11 +93,11 @@ window#waybar.empty #window {
 
 #workspaces button:hover {
     background-color: @bgh;
-    box-shadow: inset 0 0 0 100px rgba(230, 195, 132, 0.1);
+    box-shadow: inset 0 0 0 100px rgba(230, 195, 132, 0.06);
 }
 
 #workspaces button.active:hover {
-    box-shadow: inset 0 0 0 100px rgba(152, 187, 108, 0.1);
+    box-shadow: inset 0 0 0 100px rgba(152, 187, 108, 0.06);
 }
 
 /* tray */
