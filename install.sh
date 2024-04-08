@@ -41,25 +41,6 @@ do
 done
 printf "\033[35;1m%s\033[0m\n" $separator
 
-# .themes install
-printf "\n\033[32;1mThemes installation\033[0m\n"
-printf "\033[35;1m%s\033[0m\n" $separator
-if test -d "$dpath/.themes"; then
-    if test -d "$dpath/.themes.bak"; then
-        if test -L "$dpath/.themes.bak"; then
-            rm "$dpath/.themes.bak"
-        else
-            rm -r "$dpath/.themes.bak"
-        fi
-        printf "Remove old .themes.bak!\n"
-    fi
-    mv "$dpath/.themes" "$dpath/.themes.bak"
-    printf "Move existing .themes folder to .themes.bak!\n"
-fi
-ln -s "$spath/.themes" "$dpath/.themes"
-printf "Symlink .themes folder\n"
-printf "\033[35;1m%s\033[0m\n" $separator
-
 # .scripts install
 printf "\n\033[32;1mScripts installation\033[0m\n"
 printf "\033[35;1m%s\033[0m\n" $separator

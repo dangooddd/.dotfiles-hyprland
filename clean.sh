@@ -27,16 +27,6 @@ do
     fi
 done
 
-# .themes cleaning
-if test -d "$dpath/.themes.bak"; then
-    if test -L "$dpath/.themes.bak"; then
-        rm "$dpath/.themes.bak"
-    else
-        rm -r "$dpath/.themes.bak"
-    fi
-    printf "Remove .themes.bak!\n"
-fi 
-
 # .scripts cleaning
 if test -d "$dpath/.scripts.bak"; then
     if test -L "$dpath/.scripts.bak"; then
