@@ -1,16 +1,20 @@
+@import url("../../.cache/wal/colors-waybar.css");
 * {
     font-size: 14pt;  
 }
-
-@define-color col1 #6a9589;
-@define-color col2 #938aa9;
-@define-color col3 #a7c090;
-@define-color col4 #dbbc7f;
-@define-color col5 #859289;
-@define-color col6 #0b0f10;
-@define-color fg #d3c6aa;
-@define-color bg #1f1f28;
-@define-color bgh #23232c;
+/*
+@define-color color0 #6a9589;
+@define-color color1 #938aa9;
+@define-color color2 #98bb6c;
+@define-color color3 #e6c384;
+@define-color color4 #859289;
+*/
+@define-color brd #54546d;
+/*
+@define-color foreground #dcd7ba;
+@define-color background #16161d;
+*/
+@define-color bgh #1e1f28;
 
 /* main window */
 window#waybar {
@@ -36,8 +40,8 @@ window#waybar {
     padding-left: 10px;
     padding-right: 10px;
     border-style: solid;
-    border-width: 3px;
-    background-color: @bg;
+    border-width: 2px;
+    background-color: @background;
 }
 
 /* tooltip */
@@ -47,15 +51,15 @@ tooltip * {
 }
 
 tooltip {
-    background-color: @bg;
+    background-color: @background;
     border-radius: 5px;
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
-    border-color: @col6;
+    border-color: @brd;
 }
 
 tooltip label {
-    color: @fg;
+    color: @foreground;
 }
 
 /* window */
@@ -63,7 +67,7 @@ tooltip label {
     font-family: Inter;
     margin-left: 5px;
     border-radius: 5px;
-    border-color: @col6;
+    border-color: @brd;
 }
 
 window#waybar.empty #window {
@@ -74,21 +78,21 @@ window#waybar.empty #window {
 /* workspaces */
 #workspaces {
     border-radius: 5px;
-    border-color: @col6;
+    border-color: @brd;
     padding-left: 0px;
     padding-right: 0px;
 }
 
 #workspaces button {
-    color: @col4;
-    background-color: @bg;
+    color: @color3;
+    background-color: @background;
     border-radius: 2px;
     box-shadow: none;
     transition: none;
 }
 
 #workspaces button.active {
-    color: @col3;
+    color: @color2;
 }
 
 #workspaces button:hover {
@@ -104,7 +108,7 @@ window#waybar.empty #window {
 #tray {
     margin-left: 5px;
     border-radius: 5px;
-    border-color: @col6;
+    border-color: @brd;
 }
 
 #tray menu * {
@@ -113,16 +117,16 @@ window#waybar.empty #window {
 }
 
 #tray menu {
-    background-color: @bg;
+    background-color: @background;
     border-radius: 5px;
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
-    border-color: @col6;
+    border-color: @brd;
 }
 
 #tray menu menuitem {
     border-radius: 5px;
-    color: @fg;
+    color: @foreground;
     box-shadow: none;
     transition: none;
 }
@@ -137,37 +141,37 @@ window#waybar.empty #window {
     margin-left: 10px;
     border-right: none;
     border-radius: 5px 0px 0px 5px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #memory {
     border-right: none;
     border-left: none;
     border-radius: 0px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #custom-mako {
     border-left: none;
     border-radius: 0px 5px 5px 0px;
-    border-color: @col6;
+    border-color: @brd;
 }
 
 #custom-spacer {
     margin-top: 10px;
     margin-bottom: 0px;
-    border-width: 3px;
+    border-width: 2px;
     border-right: none;
     border-left: none;
-    border-color: @col6;
+    border-color: @brd;
     border-radius: 0px;
     border-style: solid;
-    background-color: @bg;
+    background-color: @background;
     padding-left: 0px;
     padding-right: 0px;
-    color: @col2;
+    color: @color1;
     font-size: 16pt;
     font-weight: bold;
 }
@@ -175,54 +179,54 @@ window#waybar.empty #window {
 #clock {
     border-right: none;
     border-radius: 5px 0px 0px 5px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #language {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #pulseaudio.source {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #pulseaudio {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #bluetooth {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #network {
     border-left: none;
     border-radius: 0px 5px 5px 0px;
-    border-color: @col6;
-    color: @col3;
+    border-color: @brd;
+    color: @color2;
 }
 
 #custom-power {
     margin-left: 5px;
     margin-right: 10px;
     border-radius: 5px;
-    border-color: @col6;
+    border-color: @brd;
     padding-left: 11px;
     padding-right: 11px;
 }

@@ -1,0 +1,21 @@
+@import "colors.css";
+
+window.power_menu {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: @border;
+    background-color: @background;
+}
+
+.power_menu_box {
+    padding: 7px;
+}
+
+.power_menu_box button {
+    background-color: @color5;
+    margin: 5px;
+    color: @background;
+    min-height: 45px;
+    border-radius: 10px;
+}

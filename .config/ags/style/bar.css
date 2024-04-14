@@ -1,0 +1,81 @@
+@import "colors.css";
+
+window.bar {
+    font-family: Cascadia Code;
+    font-size: 14pt;
+    background: transparent;
+    color: @foreground;
+}
+
+/* general */
+.workspaces,
+.title,
+.tray,
+.system {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: @border;
+    background-color: @background;
+}
+
+/* box-button padding */
+.workspaces,
+.tray, 
+.system {
+    padding: 2px;
+}
+
+/* buttons and labels */
+.workspaces button {
+    background-color: @background;
+    border-radius: 10px;
+    margin: 2px;
+    color: @color3;
+}
+
+.workspaces button.focused {
+    background-color: @color5;
+    color: @background;
+}
+
+.tray button {
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: @background;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.title {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @color2;
+}
+
+.system button {
+    font-size: 12pt;
+    color: @color5;
+    background-color: @background;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.system button.power {
+    color: @color1;
+}
+
+.system .clock {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @color2;
+}
+
+.notification {
+    color: yellow;
+}
+
+levelbar block,
+highlight {
+    min-height: 10px;
+}
