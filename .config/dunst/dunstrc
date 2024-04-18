@@ -1,0 +1,97 @@
+# See dunst(5) for all configuration options
+
+[global]
+    # general
+    monitor = 0
+    follow = mouse
+    scale = 0
+    notification_limit = 5
+
+    # Geometry
+    width = 350
+    height = 300
+    origin = top-right
+    offset = 10x10
+
+    # Progress bar
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 5
+
+    # Other 
+    icon_corner_radius = 10
+    indicate_hidden = yes
+    
+    gap_size = 10
+    padding = 10
+    horizontal_padding = 10
+    text_icon_padding = 10
+
+    frame_width = 2
+    frame_color = "#aaaaaa"
+    separator_color = frame
+    sort = yes
+
+    # Text
+    font = Inter 14
+    line_height = 0
+    markup = full
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = end
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    format = "<b>%s</b>\n%b"
+
+    # Icons
+    enable_recursive_icon_lookup = true
+    icon_theme = Papirus-Dark
+    icon_position = left
+    min_icon_size = 64
+    max_icon_size = 128
+
+    # History 
+    sticky_history = yes
+    history_length = 10
+
+    # Misc/Advanced
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    corner_radius = 15
+    ignore_dbusclose = false
+    force_xwayland = false
+    force_xinerama = false
+
+    # Mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = true
+
+[urgency_low]
+    timeout = 5
+    # background = "#222222"
+    # foreground = "#888888"
+    # default_icon = /path/to/icon
+
+[urgency_normal]
+    timeout = 5
+    # background = "#285577"
+    # foreground = "#ffffff"
+    # default_icon = /path/to/icon
+
+[urgency_critical]
+    timeout = 5
+    # background = "#900000"
+    # foreground = "#ffffff"
+    # frame_color = "#ff0000"
+    #default_icon = /path/to/icon

@@ -10,6 +10,7 @@ window.bar {
 /* general */
 .workspaces,
 .title,
+.monitoring,
 .tray,
 .system {
     border-style: solid;
@@ -26,7 +27,7 @@ window.bar {
     padding: 2px;
 }
 
-/* buttons and labels */
+/* workspaces */
 .workspaces button {
     background-color: @background;
     border-radius: 10px;
@@ -39,6 +40,7 @@ window.bar {
     color: @background;
 }
 
+/* tray */
 .tray button {
     padding-left: 8px;
     padding-right: 8px;
@@ -47,12 +49,14 @@ window.bar {
     margin: 2px;
 }
 
+/* title (taskbar) */
 .title {
     padding-left: 10px;
     padding-right: 10px;
     color: @color2;
 }
 
+/* system (language, audio, power etc) */
 .system button {
     font-size: 12pt;
     color: @color5;
@@ -71,6 +75,34 @@ window.bar {
     color: @color2;
 }
 
+.system .language {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @color1;
+}
+
+.system .speaker label, 
+.system .microphone label {
+    padding-right: 10px;
+    color: @color2;
+}
+
+/* monitoring */
+.monitoring {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.monitoring .monitoring-progress {
+    color: @color1;
+    margin-left: 8px;
+}
+
+.monitoring .monitoring-label {
+    color: @color3;
+}
+
+/* other */
 .notification {
     color: yellow;
 }

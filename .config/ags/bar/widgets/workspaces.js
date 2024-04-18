@@ -5,11 +5,10 @@ const Workspace = (id) => Widget.Button({
     on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
     child: Widget.Label(`${id}`),
     setup: self => self.hook(hyprland, self => {
-        if (hyprland.active.workspace.id === self.attribute) {
+        if (hyprland.active.workspace.id === self.attribute)
             self.toggleClassName("focused", true)
-        } else {
+        else
             self.toggleClassName("focused", false)
-        }
     })
 })
 

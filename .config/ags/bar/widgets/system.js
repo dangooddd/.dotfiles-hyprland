@@ -6,17 +6,16 @@ const Clock = () => {
         class_name: "clock",
     })
 
-    Utils.interval(1000, () => {
+    Utils.interval(5000, () => {
         Utils.execAsync("date +%H:%M")
             .then(string => {clock.label = string})
-            .catch(error => {clock.label = error});
+            .catch(error => {print(error)});
     })
 
     return clock
 }
 
-const Speaker = () => Widget.Button({
-    class_name: "speaker",
+const SpeakerButton = () => Widget.Button({
     on_clicked: () => audio.speaker.is_muted = !audio.speaker.is_muted,
     on_scroll_up: () => audio.speaker.volume += 0.05,
     on_scroll_down: () => audio.speaker.volume -= 0.05,
@@ -30,14 +29,23 @@ const Speaker = () => Widget.Button({
         }
         const volume = Math.ceil(audio.speaker.volume * 100)
         const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(threshold => threshold <= volume)
-        const tooltip = volume > 0 ? `audio volume at ${volume}% now` : "audio is muted now"
         self.icon = `audio-volume-${icons[icon]}-symbolic`
-        self.tooltip_text = tooltip            
     }),
 })
 
-const Microphone = () => Widget.Button({
-    class_name: "microphone",
+const Speaker = () => Widget.Box({
+    class_name: "speaker",
+    children: [
+        SpeakerButton(),
+        Widget.Label({
+            setup: self => self.hook(audio.speaker, self => {
+                self.label = `${Math.ceil(audio.speaker.volume * 100)}`
+            })
+        }),
+    ],
+})
+
+const MicrophoneButton = () => Widget.Button({
     on_clicked: () => audio.microphone.is_muted = !audio.microphone.is_muted,
     on_scroll_up: () => audio.microphone.volume += 0.05,
     on_scroll_down: () => audio.microphone.volume -= 0.05,
@@ -48,10 +56,35 @@ const Microphone = () => Widget.Button({
         }
         const volume = Math.ceil(audio.microphone.volume * 100)
         const icon = audio.microphone.is_muted ? 0 : volume > 0 ? 1 : 0
-        const tooltip = volume > 0 ? `microphone sensitivity at ${volume}% now` : "microphone is muted now"
         self.icon = `${icons[icon]}`
-        self.tooltip_text = tooltip       
     }),
+})
+
+const Microphone = () => Widget.Box({
+    class_name: "microphone",
+    children: [
+        MicrophoneButton(),
+        Widget.Label({
+            setup: self => self.hook(audio.microphone, self => {
+                self.label = `${Math.ceil(audio.microphone.volume * 100)}`
+            })
+        }),
+    ],
+})
+
+const LanguageLabel = () => Widget.Label({
+    class_name: "language",
+    setup: self => self.hook(hyprland, self => {
+        // must be changed manually
+        const keyboard_name = "turing-gaming-keyboard-turing-gaming-keyboard"
+        Utils.execAsync("hyprctl -j devices")
+            .then(devices => {
+                const keyboard = JSON.parse(devices).keyboards.find(device => device.name == keyboard_name)
+                self.label = keyboard.active_keymap.substring(0, 2).toLowerCase()
+                
+            })
+            .catch(error => {print(error)});
+    }, "keyboard-layout")
 })
 
 const PowerButton = (icon, action) => Widget.Button({
@@ -108,22 +141,20 @@ const PowerRevealer = () => Widget.Revealer({
     }
 })
 
-const Power = PowerButton("system-shutdown-symbolic", () => {
-    hyprland.messageAsync("dispatch exec systemctl poweroff")    
-})
-
 export default () => Widget.Box({
     class_name: "system",
     children: [
+        Clock(),
+        LanguageLabel(),
         Speaker(),
         Microphone(),
-        Clock(),
         PowerRevealer(),
         PowerButton("system-shutdown-symbolic", () => {
             hyprland.messageAsync("dispatch exec systemctl poweroff")    
         }),
     ],
     setup: self => {
-        self.children[4].on_secondary_click = () => {self.children[3].reveal_child = !self.children[3].reveal_child}
+        const i = self.children.length - 1
+        self.children[i].on_secondary_click = () => {self.children[i-1].reveal_child = !self.children[i-1].reveal_child}
     }
 })
