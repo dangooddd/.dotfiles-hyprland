@@ -1,5 +1,6 @@
 const audio = await Service.import("audio")
 const hyprland = await Service.import("hyprland")
+const scriptsPath = "$HOME/.scripts"
 
 const Clock = () => {
     const clock = Widget.Label({
@@ -16,9 +17,15 @@ const Clock = () => {
 }
 
 const SpeakerButton = () => Widget.Button({
-    on_clicked: () => audio.speaker.is_muted = !audio.speaker.is_muted,
-    on_scroll_up: () => audio.speaker.volume += 0.05,
-    on_scroll_down: () => audio.speaker.volume -= 0.05,
+    on_clicked: () => {
+        Utils.execAsync(["bash", "-c", `${scriptsPath}/volume.sh volume_toggle`])
+    },
+    on_scroll_up: () => {
+        Utils.execAsync(["bash", "-c", `${scriptsPath}/volume.sh volume_up`])
+    },
+    on_scroll_down: () => {
+        Utils.execAsync(["bash", "-c", `${scriptsPath}/volume.sh volume_down`])
+    },
     child: Widget.Icon().hook(audio.speaker, self => {
         const icons = {
             101: "overamplified",
@@ -27,8 +34,8 @@ const SpeakerButton = () => Widget.Button({
             1: "low",
             0: "muted",
         }
-        const volume = Math.ceil(audio.speaker.volume * 100)
-        const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(threshold => threshold <= volume)
+        const volume = Math.floor(audio.speaker.volume * 100 + 0.5)
+        const icon = audio.speaker.stream.isMuted ? 0 : [101, 67, 34, 1, 0].find(threshold => threshold <= volume)
         self.icon = `audio-volume-${icons[icon]}-symbolic`
     }),
 })
@@ -39,23 +46,29 @@ const Speaker = () => Widget.Box({
         SpeakerButton(),
         Widget.Label({
             setup: self => self.hook(audio.speaker, self => {
-                self.label = `${Math.ceil(audio.speaker.volume * 100)}`
+                self.label = `${Math.floor(audio.speaker.volume * 100 + 0.5)}`
             })
         }),
     ],
 })
 
 const MicrophoneButton = () => Widget.Button({
-    on_clicked: () => audio.microphone.is_muted = !audio.microphone.is_muted,
-    on_scroll_up: () => audio.microphone.volume += 0.05,
-    on_scroll_down: () => audio.microphone.volume -= 0.05,
+    on_clicked: () => {
+        Utils.execAsync(["bash", "-c", `${scriptsPath}/microphone.sh sensitivity_toggle`])
+    },
+    on_scroll_up: () => {
+        Utils.execAsync(["bash", "-c", `${scriptsPath}/microphone.sh sensitivity_up`])
+    },
+    on_scroll_down: () => {
+        Utils.execAsync(["bash", "-c", `${scriptsPath}/microphone.sh sensitivity_down`])
+    },
     child: Widget.Icon().hook(audio.microphone, self => {
         const icons = {
             1: "audio-input-microphone-symbolic",
             0: "microphone-sensitivity-muted-symbolic",
         }
-        const volume = Math.ceil(audio.microphone.volume * 100)
-        const icon = audio.microphone.is_muted ? 0 : volume > 0 ? 1 : 0
+        const volume = Math.floor(audio.microphone.volume * 100 + 0.5)
+        const icon = audio.microphone.stream.isMuted ? 0 : volume > 0 ? 1 : 0
         self.icon = `${icons[icon]}`
     }),
 })
@@ -66,7 +79,7 @@ const Microphone = () => Widget.Box({
         MicrophoneButton(),
         Widget.Label({
             setup: self => self.hook(audio.microphone, self => {
-                self.label = `${Math.ceil(audio.microphone.volume * 100)}`
+                self.label = `${Math.floor(audio.microphone.volume * 100 + 0.5)}`
             })
         }),
     ],
@@ -129,7 +142,7 @@ const PowerRevealerItems = [
 
 const PowerRevealer = () => Widget.Revealer({
     reveal_child: false,
-    transitionDuration: 600,
+    transitionDuration: 450,
     transition: 'slide_left',
     child: Widget.Box({
         children: PowerRevealerItems.map(item => PowerButton(item.icon, item.action)),
