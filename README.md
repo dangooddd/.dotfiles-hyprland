@@ -8,12 +8,12 @@ Minimal setup for work by dangooddd
 * **Terminal:** [foot](https://codeberg.org/dnkl/foot)
 * **App Launcher:** [fuzzel](https://codeberg.org/dnkl/fuzzel)
 * **Notification manager:** [dunst](https://github.com/dunst-project/dunst)
-* **Screen locker:** [Hyprlock](https://github.com/hyprwm/hyprlock)
-* **Idle:** [Hypridle](https://github.com/hyprwm/hypridle)
-* **Wallpaper manager:** [Hyprpaper](https://github.com/hyprwm/hyprpaper)
+* **Screen locker:** [hyprlock](https://github.com/hyprwm/hyprlock)
+* **Idle:** [hypridle](https://github.com/hyprwm/hypridle)
+* **Wallpaper manager:** [hyprpaper](https://github.com/hyprwm/hyprpaper)
 * **Bar:** [ags](https://github.com/Aylur/ags)
 * **Code Editor:** [NeoVim](https://github.com/neovim/neovim) with [NvChad](https://github.com/NvChad/NvChad) config
-* **Font:** [Inter](https://github.com/rsms/inter) as UI font and [Cascadia Code Nerd](https://github.com/microsoft/cascadia-code) as monospace font
+* **Font:** [Inter](https://github.com/rsms/inter) as UI font and [Cascadia Code](https://github.com/microsoft/cascadia-code) as monospace font
 
 ## Packages
 ### Fedora
