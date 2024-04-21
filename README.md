@@ -25,7 +25,7 @@ sudo dnf copr enable solopasha/hyprland
 ```
 Then install packages (including some quality of life packages):
 ```bash
-sudo dnf install python cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts pamixer starship foot fuzzel dunst aylurs-gtk-shell neovim hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts pamixer starship foot fuzzel dunst aylurs-gtk-shell neovim hyprpaper hyprlock hypridle
 ```
 End of installing dependencies:
 ```bash

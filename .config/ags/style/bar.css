@@ -49,6 +49,19 @@ window.bar {
     margin: 2px;
 }
 
+menu {
+    border-radius: 15px;
+    border-color: @color8;
+    border-style: solid;
+    border-width: 1px;
+    background-color: @background;
+    padding: 5px;
+}
+
+menuitem {
+    border-radius: 10px;
+}
+
 /* title (taskbar) */
 .title {
     padding-left: 10px;
@@ -100,11 +113,6 @@ window.bar {
 
 .monitoring .monitoring-label {
     color: @color3;
-}
-
-/* other */
-.notification {
-    color: yellow;
 }
 
 levelbar block,

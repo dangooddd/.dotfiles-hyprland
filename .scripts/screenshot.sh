@@ -12,10 +12,11 @@ function full {
 }
 
 function region {
-    grim -g "$(slurp)" $pic 
-    dunstify -h string:x-dunst-stack-tag:$tag \
-             -i $pic "Screenshot taken" "\[$(date +%Hh%Mm%Ss)\]"
-    wl-copy < $pic
+    if grim -g "$(slurp)" $pic; then
+        dunstify -h string:x-dunst-stack-tag:$tag \
+                 -i $pic "Screenshot taken" "\[$(date +%Hh%Mm%Ss)\]"
+        wl-copy < $pic
+    fi
 }
 
 case $1 in 
