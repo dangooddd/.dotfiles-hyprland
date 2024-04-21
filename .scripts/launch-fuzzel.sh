@@ -9,7 +9,8 @@ if [ -f $colors ]; then
            --selection-color $selection \
            --selection-text-color $selection_text \
            --selection-match-color $selection_match \
-           --border-color $border 
+           --border-color $border \
+           "$@"
 else 
-    fuzzel
+    fuzzel "$@"
 fi 

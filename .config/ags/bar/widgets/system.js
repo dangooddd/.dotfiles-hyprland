@@ -2,19 +2,17 @@ const audio = await Service.import("audio")
 const hyprland = await Service.import("hyprland")
 const scriptsPath = "$HOME/.scripts"
 
-const Clock = () => {
-    const clock = Widget.Label({
-        class_name: "clock",
-    })
-
-    Utils.interval(5000, () => {
-        Utils.execAsync("date +%H:%M")
-            .then(string => {clock.label = string})
-            .catch(error => {print(error)});
-    })
-
-    return clock
-}
+const Clock = () => Widget.Label({
+    class_name: "clock",
+    label: "00:00",
+    setup: self => {
+        Utils.interval(5000, () => {
+            Utils.execAsync("date +%H:%M")
+                .then(date => {self.label = date})
+                .catch(error => {print(error)});
+        })
+    }
+})
 
 const SpeakerButton = () => Widget.Button({
     on_clicked: () => {
@@ -114,28 +112,24 @@ const PowerRevealerItems = [
         icon: "system-lock-screen-symbolic",
         action: () => {
             hyprland.messageAsync("dispatch exec pidof hyprlock || hyprlock")
-            App.closeWindow("power_menu")
         }
     },
     {
         icon: "system-suspend-symbolic",
         action: () => {
             hyprland.messageAsync("dispatch exec systemctl suspend")
-            App.closeWindow("power_menu")
         }
     },
     {
         icon: "system-reboot-symbolic",
         action: () => {
             hyprland.messageAsync("dispatch exec systemctl reboot")
-            App.closeWindow("power_menu")
         }
     },
     {
         icon: "system-log-out-symbolic",
         action: () => {
             hyprland.messageAsync("dispatch exit 0")
-            App.closeWindow("power_menu")
         }
     },
 ]

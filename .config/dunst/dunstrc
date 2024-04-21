@@ -29,7 +29,6 @@
     text_icon_padding = 10
 
     frame_width = 2
-    frame_color = "#aaaaaa"
     separator_color = frame
     sort = yes
 
@@ -59,7 +58,7 @@
     history_length = 10
 
     # Misc/Advanced
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = ~/.scripts/launch-fuzzel.sh -d -p "Choose action: "
     browser = /usr/bin/xdg-open
     always_run_script = true
     corner_radius = 15
@@ -68,9 +67,9 @@
     force_xinerama = false
 
     # Mouse
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_all 
+    mouse_right_click = close_current
 
 [experimental]
     per_monitor_dpi = true
