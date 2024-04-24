@@ -3,46 +3,42 @@ const scriptPath = "$HOME/.scripts/system-monitor.py"
 const monitoring = [
     {
         name: "cpu",
-        exec: "get_cpu_load",
-        interval: 10000,
+        value: Variable("0.0", {
+            poll: [10000, `bash -c "${scriptPath} get_cpu_load"`]
+        }) 
     },
     {
         name: "ram",
-        exec: "get_memory_load",
-        interval: 10000,
+        value: Variable("0.0", {
+            poll: [10000, `bash -c "${scriptPath} get_memory_load"`]
+        })
     },
     {
         name: "disk",
-        exec: "get_disk_load",
-        interval: 100000,
+        value: Variable("0.0", {
+            poll: [100000, `bash -c "${scriptPath} get_disk_load"`]
+        })
     }
 ]
 
-const MonitoringProgress = (exec, interval) => Widget.Label({
+const MonitoringProgress = (value) => Widget.Label({
     class_name: "monitoring-progress",
-    label: "0.0%",
-    setup: self => {
-        Utils.interval(interval, () => {
-            Utils.execAsync(["bash", "-c", `${scriptPath} ${exec}`])
-                .then(string => {self.label = string + "%"})
-                .catch(error => {print(error)});
-        })
-    }
+    label: value.bind().as(value => value + "%"),
 })
 
-const MonitoringBox = (name, exec, interval) => Widget.Box({
+const MonitoringBox = (name, value) => Widget.Box({
     class_name: "monitoring-box",
     children: [
         Widget.Label({
             class_name: "monitoring-label",
             label: name.toUpperCase(),
         }),
-        MonitoringProgress(exec, interval),
+        MonitoringProgress(value),
     ]
 })
 
 export default () => Widget.Box({
     class_name: "monitoring",
     spacing: 15,
-    children: monitoring.map(obj => MonitoringBox(obj.name, obj.exec, obj.interval))
+    children: monitoring.map(obj => MonitoringBox(obj.name, obj.value))
 })

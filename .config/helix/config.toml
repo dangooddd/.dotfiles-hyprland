@@ -1,0 +1,7 @@
+theme = "kanagawa"
+
+[editor.file-picker]
+hidden = false
+
+[editor.cursor-shape]
+insert = "bar"

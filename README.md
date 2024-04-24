@@ -1,7 +1,7 @@
 # dangooddd linux dotfiles
 Minimal setup for work by dangooddd
 
-<img align="center" src="./screenshots/look.png">
+<img align="center" src="./.screenshots/look.png">
 
 ## Configurations 
 * **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland)
@@ -22,10 +22,11 @@ Enable some copr repos:
 sudo dnf copr enable atim/starship
 sudo dnf copr enable che/nerd-fonts
 sudo dnf copr enable solopasha/hyprland
+sudo dnf copr enable varlad/zellij
 ```
 Then install packages (including some quality of life packages):
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts pamixer starship foot fuzzel dunst aylurs-gtk-shell neovim hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts pamixer starship foot fuzzel dunst aylurs-gtk-shell helix zellij hyprpaper hyprlock hypridle
 ```
 End of installing dependencies:
 ```bash

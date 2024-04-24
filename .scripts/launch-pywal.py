@@ -1,9 +1,12 @@
 #!/usr/bin/env python 
+
 import os
 from pathlib import Path
 
+
 cache = f"{Path.home()}/.cache/wal"
 config = f"{Path.home()}/.config"
+
 
 def symlink():
     to_link = {
@@ -15,6 +18,7 @@ def symlink():
         if not(Path(dst).exists()) and Path(src).exists():
             os.symlink(src, dst)
             print(f"Symlink {src}")
+
 
 if __name__ == "__main__":
     os.system(f"{Path.home()}/.local/bin/wal --theme base16-tomorrow-night")
