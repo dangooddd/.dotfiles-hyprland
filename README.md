@@ -12,7 +12,7 @@ Minimal setup for work by dangooddd
 * **Idle:** [hypridle](https://github.com/hyprwm/hypridle)
 * **Wallpaper manager:** [hyprpaper](https://github.com/hyprwm/hyprpaper)
 * **Bar:** [ags](https://github.com/Aylur/ags)
-* **Code Editor:** [NeoVim](https://github.com/neovim/neovim) with [NvChad](https://github.com/NvChad/NvChad) config
+* **Code Editor:** [Helix](https://github.com/helix-editor/helix)
 * **Font:** [Inter](https://github.com/rsms/inter) as UI font and [Cascadia Code](https://github.com/microsoft/cascadia-code) as monospace font
 
 ## Packages
