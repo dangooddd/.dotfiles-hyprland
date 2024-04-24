@@ -24,7 +24,7 @@ sudo dnf copr enable che/nerd-fonts
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable varlad/zellij
 ```
-Then install packages (including some quality of life packages):
+Then install packages:
 ```bash
 sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts pamixer starship foot fuzzel dunst aylurs-gtk-shell helix zellij hyprpaper hyprlock hypridle
 ```
