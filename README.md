@@ -47,20 +47,14 @@ git clone https://github.com/dangooddd/.dotfiles.git
 ```
 
 ### Manual
-Copy or symlink all config directories you want to install:
-```bash
-ln -s /path/to/.dotfiles/.config/config_dir $HOME/.config/ 
-```
+Copy or symlink all directories you want
 
 ### Via script
 > [!Warning]
-> Method below may be dangerous! Some files from your .config can be deleted, so read code and make your decision!
+> Method below may be dangerous! Some files from your filesystem can be deleted, so read code and make your decision!
+
+Scripts will symlink dotfiles on your filesystem (existing directories will be moved in /path/to/dotfiles/.backup)
 ```bash
 cd .dotfiles
 ./install.sh
-```
-
-If you want to delete your old configs that was moved to .bak directories:
-```bash
-./clean.sh
 ```
