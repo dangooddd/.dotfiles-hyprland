@@ -26,7 +26,7 @@ sudo dnf copr enable varlad/zellij
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts pamixer starship foot fuzzel dunst aylurs-gtk-shell helix zellij hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts wl-clipboard pamixer starship foot fuzzel dunst aylurs-gtk-shell helix zellij hyprpaper hyprlock hypridle
 ```
 End of installing dependencies:
 ```bash
@@ -36,7 +36,7 @@ sudo dnf install hyprland-git --exclude kitty
 Quality of life packages:
 ```bash 
 sudo dnf copr enable tofik/nwg-shell
-sudo dnf install nwg-look kvantum qt6ct zoxide # Orchis as gtk and kvantum theme
+sudo dnf install nwg-look kvantum qt6ct zoxide cargo # Orchis as gtk and kvantum theme
 ```
 
 ## Installation
@@ -53,7 +53,7 @@ Copy or symlink all directories you want
 > [!Warning]
 > Method below may be dangerous! Some files from your filesystem can be deleted, so read code and make your decision!
 
-Scripts will symlink dotfiles on your filesystem (existing directories will be moved in /path/to/dotfiles/.backup)
+Script will symlink dotfiles to your filesystem (existing directories will be moved in /path/to/dotfiles/.backup)
 ```bash
 cd .dotfiles
 ./install.sh
