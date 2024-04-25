@@ -1,63 +1,88 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
-# This script will symlink all directories 
-# from .dotfiles/.config/ to ~/.config/, so you
-# can change it everywhere. If some configs exist,
-# script will move it to .bak, so you can restore it 
+function colored {
+    local color
+    local end
+    case "$1" in
+        "red") color="\e[0;31m";;
+        "green") color="\e[0;32m";;
+        "magenta") color="\e[0;35m";;
+        "yellow") color="\e[1;33m";;
+    esac 
+    end="\e[0m"
+    printf "$color$2$end"
+}
 
-spath="$(dirname $(readlink -f $0))"
-dpath="$HOME"
-separator="--------------------------"
-
-printf "\n\033[31;1mStarting installation!\033[0m\n\n"
-
-# Config install
-configs=$(ls $spath/.config/)
-printf "\033[32;1mConfig installation\033[0m\n"
-printf "\033[35;1m%s\033[0m\n" $separator
-# creating of .config if it doesnt exist
-if ! test -d "$dpath/.config"; then 
-    mkdir "$dpath/.config"
-    printf ".config does not exist, creating it!\n\n"
-fi
-for d in $configs
-do
-    # check if config directory exist
-    if test -d "$dpath/.config/$d"; then
-        if test -d "$dpath/.config/$d.bak"; then
-            if test -L "$dpath/.config/$d.bak"; then
-                rm "$dpath/.config/$d.bak"
-            else
-                rm -r "$dpath/.config/$d.bak"
-            fi
-            printf "Remove old %s.bak!\n" $d
+function ddir {
+    if [ -d "$1" ]; then 
+        if [ -L "$1" ]; then
+            rm "$1"
+        else 
+            rm -r "$1"
         fi
-        # move existing config to config.bak
-        mv "$dpath/.config/$d" "$dpath/.config/$d.bak"
-        printf "Move existing %s config to %s.bak!\n" $d $d
+        colored "red" "# "
+        printf "Remove %s\n" "$1"
     fi
-    ln -s "$spath/.config/$d" "$dpath/.config/$d"
-    printf "Symlink %s config\n" $d
-done
-printf "\033[35;1m%s\033[0m\n" $separator
+}
 
-# .scripts install
-printf "\n\033[32;1mScripts installation\033[0m\n"
-printf "\033[35;1m%s\033[0m\n" $separator
-if test -d "$dpath/.scripts"; then
-    if test -d "$dpath/.scripts.bak"; then
-        if test -L "$dpath/.scripts.bak"; then
-            rm "$dpath/.scripts.bak"
-        else
-            rm -r "$dpath/.scripts.bak"
+function dinstall {
+    # $1 - src, $2 - dst, $3 - back
+    if [ -d "$2" ]; then
+        if [ -d "$3" ]; then
+            ddir "$3"
         fi
-        printf "Remove old .scripts.bak!\n"
+        mv "$2" "$3"
+        colored "yellow" "* "
+        printf "Move %s to %s\n" "$2" "$3" 
     fi
-    mv "$dpath/.scripts" "$dpath/.scripts.bak"
-    printf "Move existing .scripts folder to .scripts.bak!\n"
-fi
-ln -s "$spath/.scripts" "$dpath/.scripts"
-printf "Symlink .scripts folder\n"
-printf "\033[35;1m%s\033[0m\n" $separator
 
-printf "\n\033[31;1mEnd of installation!\033[0m\n"
+    colored "green" "+ "
+    printf "Link %s to %s\n\n" "$1" "$2"
+    ln -s "$1" "$2"
+}
+
+function finstall {
+    # $1 - src, $2 - dst, $3 - back
+    if [ -f "$2" ]; then
+        if [ -f "$3" ]; then
+            rm "$3"
+            colored "red" "# "
+            printf "Remove %s\n" "$3"
+        fi
+        mv "$2" "$3"
+        colored "yellow" "* "
+        printf "Move %s to %s\n" "$2" "$3"
+    fi   
+
+    colored "green" "+ "
+    printf "Link %s to %s\n\n" "$1" "$2"
+    ln -s "$1" "$2"
+}
+
+function install {
+    colored "magenta" "\n[ "
+    colored "red" "Installing dangooddd dotfiles"
+    colored "magenta" " ]\n\n"
+    
+    local dotfiles
+    dotfiles="$(dirname "$(readlink -f $0)")"
+    mkdir -p "$dotfiles"/.backup/.config
+    shopt -s dotglob
+
+    for src in "$dotfiles"/.config/*
+    do
+        local name
+        name="$(basename "$src")"
+        dinstall "$src" "$HOME"/.config/"$name" "$dotfiles"/.backup/.config/"$name"
+    done
+
+    dinstall "$dotfiles"/.scripts "$HOME"/.scripts "$dotfiles"/.backup/.scripts
+    dinstall "$dotfiles"/.wallpapers "$HOME"/.wallpapers "$dotfiles"/.backup/.wallpapers
+    finstall "$dotfiles"/.files/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
+
+    colored "magenta" "[ "
+    colored "red" "Dotfiles installed!"
+    colored "magenta" " ]\n"
+}
+
+install
