@@ -31,7 +31,7 @@ const Right = () => Widget.Box({
     ],
 })
 
-export default (monitor = 0) => Widget.Window({
+const Bar = (monitor = 0) => Widget.Window({
     monitor,
     name: `bar-${monitor}`,
     class_name: "bar",
@@ -40,9 +40,13 @@ export default (monitor = 0) => Widget.Window({
     exclusivity: "exclusive",
     margins: [10, 10, 0, 10],
     child: Widget.CenterBox({
-        css: "min-width: 2px; min-height: 2px;",
         start_widget: Left(),
         center_widget: Center(),
         end_widget: Right(),
     }),
+    setup: self => self.on("destroy", () => {
+        App.removeWindow(self)
+    }),
 })
+
+export default Bar

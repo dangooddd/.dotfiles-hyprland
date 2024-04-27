@@ -179,8 +179,8 @@ keybinds {
 
     shared_except "locked" {
         bind "Alt f" {
-            LaunchPlugin "filepicker" {
-                close_on_selection true
+            LaunchOrFocusPlugin "zellij:strider" { 
+                floating true                    
             };
         }
     }
@@ -197,6 +197,13 @@ plugins {
     }
     filepicker location="zellij:strider" {
         cwd "/"
+    }
+}
+
+
+ui {
+    pane_frames {
+        rounded_corners true
     }
 }
 

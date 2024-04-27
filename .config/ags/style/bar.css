@@ -67,6 +67,8 @@ menuitem {
     padding-left: 10px;
     padding-right: 10px;
     color: @color2;
+    font-family: Inter;
+    font-weight: 500;
 }
 
 /* system (language, audio, power etc) */
