@@ -43,8 +43,8 @@ function dinstall {
 
 function finstall {
     # $1 - src, $2 - dst, $3 - back
-    if [ -f "$2" ]; then
-        if [ -f "$3" ]; then
+    if [ -f "$2" ] || [ -L "$2" ]; then
+        if [ -f "$3" ] || [ -L "$2" ]; then
             rm "$3"
             colored "red" "# "
             printf "Remove %s\n" "$3"
@@ -78,7 +78,7 @@ function install {
 
     dinstall "$dotfiles"/.scripts "$HOME"/.scripts "$dotfiles"/.backup/.scripts
     dinstall "$dotfiles"/.wallpapers "$HOME"/.wallpapers "$dotfiles"/.backup/.wallpapers
-    finstall "$dotfiles"/.files/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
+    finstall "$dotfiles"/.home/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
 
     colored "magenta" "[ "
     colored "red" "Dotfiles installed!"

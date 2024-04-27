@@ -8,7 +8,7 @@ App.config({
     ],
 })
 
-hyprland.connect("monitor-added", (_hypr, monitor) => {
+hyprland.connect("monitor-added", (_, monitor) => {
     var id = -1
     for (var mt of hyprland.monitors) {
         if (mt.name == monitor)
