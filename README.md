@@ -1,7 +1,7 @@
 # dangooddd linux dotfiles
 Minimal setup for work by dangooddd
 
-<img align="center" src="./.screenshots/look.png">
+<img align="center" src="./.samples/look.png">
 
 ## Configurations 
 * **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland)

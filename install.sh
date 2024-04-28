@@ -81,6 +81,9 @@ function install {
     dinstall "$dotfiles"/.wallpapers "$HOME"/.wallpapers "$dotfiles"/.backup/.wallpapers
     finstall "$dotfiles"/.home/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
 
+    # user specific
+    cp "$dotfiles"/.samples/user_options.js "$HOME"/.config/ags/user_options.js
+
     colored "magenta" "[ "
     colored "red" "Dotfiles installed!"
     colored "magenta" " ]\n"

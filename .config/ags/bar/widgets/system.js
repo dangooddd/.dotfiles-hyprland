@@ -1,3 +1,4 @@
+import options from "../../user_options.js"
 const audio = await Service.import("audio")
 const hyprland = await Service.import("hyprland")
 
@@ -83,11 +84,9 @@ const Microphone = () => Widget.Box({
 const LanguageLabel = () => Widget.Label({
     class_name: "language",
     setup: self => self.hook(hyprland, self => {
-        // must be changed manually
-        const keyboard_name = "turing-gaming-keyboard-turing-gaming-keyboard"
         Utils.execAsync("hyprctl -j devices")
             .then(devices => {
-                const keyboard = JSON.parse(devices).keyboards.find(device => device.name == keyboard_name)
+                const keyboard = JSON.parse(devices).keyboards.find(device => device.name == options.keyboard)
                 self.label = keyboard.active_keymap.substring(0, 2).toLowerCase()
                 
             })
