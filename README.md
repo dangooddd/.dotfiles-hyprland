@@ -31,7 +31,7 @@ sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rs
 End of installing dependencies:
 ```bash
 pip install pywal
-sudo dnf install hyprland-git --exclude kitty
+sudo dnf install hyprland-git-devel hyprland-git --exclude kitty
 ```
 Quality of life packages:
 ```bash 
