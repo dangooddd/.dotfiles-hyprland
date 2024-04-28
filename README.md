@@ -48,7 +48,9 @@ git clone https://github.com/dangooddd/.dotfiles.git
 ```
 
 ### Manual
-Copy or symlink all directories you want
+Copy or symlink all directories you want.
+For hyprland it is suggested copy .samples/user_hyprland.conf in .config/hypr/.
+For ags it is suggested copy .samples/user_options.js in .config/ags.
 
 ### Via script
 > [!Warning]
