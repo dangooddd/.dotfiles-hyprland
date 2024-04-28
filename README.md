@@ -26,11 +26,12 @@ sudo dnf copr enable varlad/zellij
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts wl-clipboard papirus-icon-theme network-manager-applet pamixer starship foot fuzzel dunst aylurs-gtk-shell helix zellij hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer starship foot fuzzel dunst aylurs-gtk-shell helix zellij hyprpaper hyprlock hypridle
 ```
 End of installing dependencies:
 ```bash
 pip install pywal
+pip install psutil
 sudo dnf install hyprland-git-devel hyprland-git --exclude kitty
 ```
 Quality of life packages:
