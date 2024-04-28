@@ -83,6 +83,7 @@ function install {
 
     # user specific
     cp "$dotfiles"/.samples/user_options.js "$HOME"/.config/ags/user_options.js
+    cp "$dotfiles"/.samples/user_hyprland.conf "$HOME"/.config/hypr/user_hyprland.conf
 
     colored "magenta" "[ "
     colored "red" "Dotfiles installed!"
