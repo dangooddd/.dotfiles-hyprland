@@ -67,6 +67,7 @@ function install {
     local dotfiles
     dotfiles="$(dirname "$(readlink -f $0)")"
     mkdir -p "$dotfiles"/.backup/.config
+    mkdir -p "$HOME"/Pictures/Screenshots
     shopt -s dotglob
 
     for src in "$dotfiles"/.config/*
