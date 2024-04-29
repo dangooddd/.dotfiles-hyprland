@@ -137,11 +137,28 @@ const PowerRevealer = () => Widget.Revealer({
     child: Widget.Box({
         children: PowerRevealerItems.map(item => PowerButton(item.icon, item.action)),
     }),
+})
+
+const PowerMenu = () => Widget.EventBox({
+    child: Widget.Box({
+        children: [
+            PowerRevealer(),
+            PowerButton("system-shutdown-symbolic", () => {
+                hyprland.messageAsync("dispatch exec systemctl poweroff")    
+            }),
+        ],
+    }),
     setup: self => {
-        self.child.children.forEach(btn => {
-            btn.on_secondary_click = () => {self.reveal_child = !self.reveal_child}
-        })
-    }
+        self.on_hover = () => {
+            self.child.children[0].reveal_child = true
+        }
+        self.on_hover_lost = () => {
+            self.child.children[0].reveal_child = false
+        }
+        self.on_secondary_click = () => {
+            self.child.children[0].reveal_child = !self.child.children[0].reveal_child
+        }
+    },
 })
 
 export default () => Widget.Box({
@@ -151,13 +168,6 @@ export default () => Widget.Box({
         LanguageLabel(),
         Speaker(),
         Microphone(),
-        PowerRevealer(),
-        PowerButton("system-shutdown-symbolic", () => {
-            hyprland.messageAsync("dispatch exec systemctl poweroff")    
-        }),
+        PowerMenu(),
     ],
-    setup: self => {
-        const i = self.children.length - 1
-        self.children[i].on_secondary_click = () => {self.children[i-1].reveal_child = !self.children[i-1].reveal_child}
-    }
 })
