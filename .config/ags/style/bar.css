@@ -96,10 +96,29 @@ menuitem {
     color: @color1;
 }
 
+.system .battery label,
 .system .speaker label, 
 .system .microphone label {
-    padding-right: 10px;
+    margin-right: 10px;
     color: @color2;
+}
+
+.system .battery-low {
+    color: @color1;
+}
+
+.system .battery-mid {
+    color: @color3;
+}
+
+.system .battery-high {
+    color: @color5;
+}
+
+
+.system .battery image {
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 /* monitoring */

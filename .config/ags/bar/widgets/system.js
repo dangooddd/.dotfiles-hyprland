@@ -1,6 +1,7 @@
 import options from "../../user_options.js"
 const audio = await Service.import("audio")
 const hyprland = await Service.import("hyprland")
+const battery = await Service.import("battery")
 
 const scriptsPath = "$HOME/.scripts"
 const time = Variable("00:00", {
@@ -94,6 +95,29 @@ const LanguageLabel = () => Widget.Label({
     }, "keyboard-layout")
 })
 
+const BatteryIcon = () => Widget.Icon({
+    icon: battery.bind("icon_name"),
+    class_name: battery.bind("percent").as(p => {
+        if (p > 66)
+            return "battery-high"
+        else if (p > 33)
+            return "battery-mid"
+        else
+            return "battery-low"
+    })
+})
+
+const Battery = () => Widget.Box({
+    class_name: "battery",
+    visible: battery.bind("available"),
+    children: [
+        BatteryIcon(),
+        Widget.Label({
+            label: battery.bind("percent").as(p => `${p}`),
+        }),
+    ],
+})
+
 const PowerButton = (icon, action) => Widget.Button({
     class_name: "power",
     on_primary_click: action,
@@ -166,6 +190,7 @@ export default () => Widget.Box({
     children: [
         Clock(),
         LanguageLabel(),
+        Battery(),
         Speaker(),
         Microphone(),
         PowerMenu(),
