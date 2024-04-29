@@ -93,7 +93,7 @@ function install {
     uinstall "$dotfiles"/.samples/user_options.js \
              "$HOME"/.config/ags/user_options.js
 
-    uinstall "$dotfiles"/.samples/user_hyprland.conf \
+    uinstall "$dotfiles"/.samples/user_options.conf \
              "$HOME"/.config/hypr/user_options.conf 
 
     colored "magenta" "[ "
