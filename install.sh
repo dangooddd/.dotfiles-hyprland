@@ -59,6 +59,15 @@ function finstall {
     ln -s "$1" "$2"
 }
 
+
+# user specific
+function uinstall {
+    # $1 - src, $2 - dst
+    if [ ! -f "$2" ]; then
+        cp "$1" "$2"
+    fi
+}
+
 function install {
     colored "magenta" "\n[ "
     colored "red" "Installing dangooddd dotfiles"
@@ -81,9 +90,11 @@ function install {
     dinstall "$dotfiles"/.wallpapers "$HOME"/.wallpapers "$dotfiles"/.backup/.wallpapers
     finstall "$dotfiles"/.home/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
 
-    # user specific
-    cp "$dotfiles"/.samples/user_options.js "$HOME"/.config/ags/user_options.js
-    cp "$dotfiles"/.samples/user_hyprland.conf "$HOME"/.config/hypr/user_hyprland.conf
+    uinstall "$dotfiles"/.samples/user_options.js \
+             "$HOME"/.config/ags/user_options.js
+
+    uinstall "$dotfiles"/.samples/user_hyprland.conf \
+             "$HOME"/.config/hypr/user_options.conf 
 
     colored "magenta" "[ "
     colored "red" "Dotfiles installed!"
