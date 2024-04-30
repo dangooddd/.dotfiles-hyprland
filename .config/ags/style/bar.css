@@ -103,6 +103,11 @@ menuitem {
     color: @color2;
 }
 
+.system .battery image {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
 .system .battery-low {
     color: @color1;
 }
@@ -113,12 +118,6 @@ menuitem {
 
 .system .battery-high {
     color: @color5;
-}
-
-
-.system .battery image {
-    margin-left: 6px;
-    margin-right: 6px;
 }
 
 /* monitoring */
