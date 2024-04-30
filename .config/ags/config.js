@@ -9,13 +9,12 @@ App.config({
 })
 
 hyprland.connect("monitor-added", (_, monitor) => {
-    var id = -1
+    var id = 0
     for (var mt of hyprland.monitors) {
         if (mt.name == monitor)
             id = mt.id
             break;
     }
-    id = id == -1 ? 0 : id
     
     var flag = true
     for (var wd of App.windows) {
