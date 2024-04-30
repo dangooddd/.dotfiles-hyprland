@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# colored output
 function colored {
     local color
     local end
@@ -13,6 +14,9 @@ function colored {
     printf "$color$2$end"
 }
 
+# directory remove
+# if directory is link, delete link file
+# (linked directory will be fine)
 function ddir {
     if [ -d "$1" ]; then 
         if [ -L "$1" ]; then
@@ -25,6 +29,7 @@ function ddir {
     fi
 }
 
+# directory installation with backup if already exist
 function dinstall {
     # $1 - src, $2 - dst, $3 - back
     if [ -d "$2" ]; then
@@ -41,6 +46,7 @@ function dinstall {
     ln -s "$1" "$2"
 }
 
+# file installation with backup if already exist
 function finstall {
     # $1 - src, $2 - dst, $3 - back
     if [ -f "$2" ] || [ -L "$2" ]; then
@@ -60,7 +66,7 @@ function finstall {
 }
 
 
-# user specific
+# user specific files installation
 function uinstall {
     # $1 - src, $2 - dst
     if [ ! -f "$2" ]; then
@@ -68,6 +74,7 @@ function uinstall {
     fi
 }
 
+# main function
 function install {
     colored "magenta" "\n[ "
     colored "red" "Installing dangooddd dotfiles"
@@ -88,6 +95,7 @@ function install {
 
     dinstall "$dotfiles"/.scripts "$HOME"/.scripts "$dotfiles"/.backup/.scripts
     dinstall "$dotfiles"/.wallpapers "$HOME"/.wallpapers "$dotfiles"/.backup/.wallpapers
+    dinstall "$dotfiles"/.bashrc.d "$HOME"/.bashrc.d "$dotfiles"/.backup/.bashrc.d
     finstall "$dotfiles"/.home/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
 
     uinstall "$dotfiles"/.samples/user_options.js \
