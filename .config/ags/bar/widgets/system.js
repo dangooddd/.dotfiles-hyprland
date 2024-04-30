@@ -98,12 +98,13 @@ const LanguageLabel = () => Widget.Label({
 const BatteryIcon = () => Widget.Icon({
     icon: battery.bind("icon_name"),
     class_name: battery.bind("percent").as(p => {
-        if (p > 66)
-            return "battery-high"
-        else if (p > 33)
-            return "battery-mid"
-        else
-            return "battery-low"
+        const classes = {
+            67: "high",
+            34: "mid",
+            0: "low",
+        }
+        const cindex = [67, 34, 0].find(threshold => threshold <= p)    
+        return `battery-${classes[cindex]}`
     })
 })
 
