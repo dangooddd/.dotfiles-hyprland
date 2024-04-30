@@ -95,24 +95,13 @@ const LanguageLabel = () => Widget.Label({
     }, "keyboard-layout")
 })
 
-const BatteryIcon = () => Widget.Icon({
-    icon: battery.bind("icon_name"),
-    class_name: battery.bind("percent").as(p => {
-        const classes = {
-            67: "high",
-            34: "mid",
-            0: "low",
-        }
-        const cindex = [67, 34, 0].find(threshold => threshold <= p)    
-        return `battery-${classes[cindex]}`
-    })
-})
-
 const Battery = () => Widget.Box({
-    class_name: "battery",
     visible: battery.bind("available"),
+    class_name: "battery",
     children: [
-        BatteryIcon(),
+        Widget.Icon({
+            icon: battery.bind("icon_name"),
+        }),
         Widget.Label({
             label: battery.bind("percent").as(p => `${p}`),
         }),
