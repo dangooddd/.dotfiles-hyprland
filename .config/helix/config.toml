@@ -5,3 +5,6 @@ hidden = false
 
 [editor.cursor-shape]
 insert = "bar"
+
+[keys.normal."+"]
+r = ":sh zellij run -f -- just run"
