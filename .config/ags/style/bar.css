@@ -51,7 +51,9 @@ window.bar {
 
 tooltip {
     font-family: Inter;
-    color: @foreground;
+    border-radius: 10px;
+    background-color: @color5;
+    color: @background;
 }
 
 menu {
