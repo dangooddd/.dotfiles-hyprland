@@ -49,6 +49,11 @@ window.bar {
     margin: 2px;
 }
 
+tooltip {
+    font-family: Inter;
+    color: @foreground;
+}
+
 menu {
     border-radius: 15px;
     border-color: @color8;
