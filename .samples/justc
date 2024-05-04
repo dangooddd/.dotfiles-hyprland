@@ -1,0 +1,16 @@
+alias b := build
+alias r := run
+alias d := disassembly
+
+build:
+    mkdir -p ./build
+    gcc ./src/*.c -o ./build/main
+
+run:
+    ./build/main
+
+disassembly:
+    for file in ./src/*.c; do \
+        target="$(basename "$file")"; \
+        gcc -mfpmath=387 -S ./src/$target -o ./build/${target::-2}.s; \
+	done
