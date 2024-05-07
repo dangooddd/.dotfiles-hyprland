@@ -8,6 +8,10 @@ file-types = ["conf"]
 indent = { tab-width = 4, unit = "    "}
 
 [[language]]
+name = "zig"
+indent = { tab-width = 4, unit = "    "}
+
+[[language]]
 name = "javascript"
 indent = { tab-width = 4, unit = "    "}
 
