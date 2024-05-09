@@ -4,7 +4,7 @@ alias d := disassembly
 
 build:
     mkdir -p ./build
-    gcc ./src/*.c -o ./build/main
+    gcc -g -march=native ./src/*.c -o ./build/main
 
 run:
     ./build/main
@@ -12,5 +12,5 @@ run:
 disassembly:
     for file in ./src/*.c; do \
         target="$(basename "$file")"; \
-        gcc -mfpmath=387 -S ./src/$target -o ./build/${target::-2}.s; \
+        gcc -march=native -S ./src/$target -o ./build/${target::-2}.s; \
 	done
