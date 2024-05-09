@@ -32,10 +32,6 @@ function ddir {
 # copy file
 function cfile {
     # $1 - src, $2 - dst
-    local dir
-    dir="$(dirname "$(readlink -f $2)")"
-    mkdir -p "$dir"
-
     if [ ! -f "$2" ]; then
         cp "$1" "$2"
     fi
@@ -44,10 +40,6 @@ function cfile {
 # link file
 function lfile {
     # $1 - src, $2 - dst
-    local dir
-    dir="$(dirname "$(readlink -f $2)")"
-    mkdir -p "$dir"
-    
     if [ ! -f "$2" ] && [ ! -L "$2" ]; then
         ln -s "$1" "$2"
     fi
@@ -91,6 +83,10 @@ function finstall {
 
 # user specific files installation
 function uinstall {
+    local dotfiles
+    dotfiles="$(dirname "$(readlink -f "$0")")"
+    mkdir -p "$HOME"/.config/hypr/user
+
     cfile "$dotfiles"/.samples/user-options.js \
           "$HOME"/.config/ags/user-options.js
     
@@ -107,6 +103,7 @@ function pinstall {
     local config
     cache="$HOME"/.cache/wal
     config="$HOME"/.config
+    mkdir -p "$config"/hypr/user
     
     lfile "$cache"/colors-dunst.conf \
           "$config"/dunst/dunstrc.d/00-colors.conf
