@@ -1,6 +1,6 @@
 .backup
-.config/ags/user_options.js
-.config/hypr/user_options.conf
-.config/hypr/colors-hyprland.conf
+.config/ags/user-options.js
+.config/hypr/user
 .config/dunst/dunstrc.d/00-colors.conf
 .config/ags/style/colors.css
+.config/fuzzel/colors.ini

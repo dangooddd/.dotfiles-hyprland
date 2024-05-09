@@ -1,4 +1,4 @@
-import options from "../../user_options.js"
+import options from "../../user-options.js"
 const audio = await Service.import("audio")
 const hyprland = await Service.import("hyprland")
 const battery = await Service.import("battery")

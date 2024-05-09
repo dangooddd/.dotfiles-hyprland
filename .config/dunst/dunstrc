@@ -58,7 +58,7 @@
     history_length = 10
 
     # Misc/Advanced
-    dmenu = ~/.scripts/launch-fuzzel.sh -d -p "Choose action: "
+    dmenu = /usr/bin/fuzzel -d -p "Choose action: "
     browser = /usr/bin/xdg-open
     always_run_script = true
     corner_radius = 15
@@ -76,49 +76,9 @@
 
 [urgency_low]
     timeout = 3
-    # background = "#222222"
-    # foreground = "#888888"
-    # default_icon = /path/to/icon
 
 [urgency_normal]
     timeout = 3
-    # background = "#285577"
-    # foreground = "#ffffff"
-    # default_icon = /path/to/icon
 
 [urgency_critical]
     timeout = 3
-    # background = "#900000"
-    # foreground = "#ffffff"
-    # frame_color = "#ff0000"
-    # default_icon = /path/to/icon
-
-[screenshot]
-    stack_tag = "screenshot"
-    alignment = center
-    format = "<b>%s\n%b</b>"
-
-[volume]
-    stack_tag = "volume"
-    alignment = center
-    format = "<b>%s\n%p</b>"
-
-[volume_mute]
-    stack_tag = "volume_mute"
-    alignment = center
-    format = "<b>%s</b>"
-
-[microphone]
-    stack_tag = "microphone"
-    alignment = center
-    format = "<b>%s\n%p</b>"
-
-[microphone_mute]
-    stack_tag = "microphone_mute"
-    alignment = center
-    format = "<b>%s</b>"
-
-[brightness]
-    stack_tag = "brightness"
-    alignment = center
-    format = "<b>%s\n%p</b>"

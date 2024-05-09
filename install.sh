@@ -29,6 +29,30 @@ function ddir {
     fi
 }
 
+# copy file
+function cfile {
+    # $1 - src, $2 - dst
+    local dir
+    dir="$(dirname "$(readlink -f $2)")"
+    mkdir -p "$dir"
+
+    if [ ! -f "$2" ]; then
+        cp "$1" "$2"
+    fi
+}
+
+# link file
+function lfile {
+    # $1 - src, $2 - dst
+    local dir
+    dir="$(dirname "$(readlink -f $2)")"
+    mkdir -p "$dir"
+    
+    if [ ! -f "$2" ] && [ ! -L "$2" ]; then
+        ln -s "$1" "$2"
+    fi
+}
+
 # directory installation with backup if already exist
 function dinstall {
     # $1 - src, $2 - dst, $3 - back
@@ -65,13 +89,36 @@ function finstall {
     ln -s "$1" "$2"
 }
 
-
 # user specific files installation
 function uinstall {
-    # $1 - src, $2 - dst
-    if [ ! -f "$2" ]; then
-        cp "$1" "$2"
-    fi
+    cfile "$dotfiles"/.samples/user-options.js \
+          "$HOME"/.config/ags/user-options.js
+    
+    cfile "$dotfiles"/.samples/user-config.conf \
+          "$HOME"/.config/hypr/user/user-config.conf 
+
+    cfile "$dotfiles"/.samples/user-variables.conf \
+          "$HOME"/.config/hypr/user/user-variables.conf 
+}
+
+# pywal links setup
+function pinstall {
+    local cache
+    local config
+    cache="$HOME"/.cache/wal
+    config="$HOME"/.config
+    
+    lfile "$cache"/colors-dunst.conf \
+          "$config"/dunst/dunstrc.d/00-colors.conf
+
+    lfile "$cache"/colors-ags.css \
+          "$config"/ags/style/colors.css
+          
+    lfile "$cache"/colors-hyprland.conf \
+          "$config"/hypr/user/colors.conf
+
+    lfile "$cache"/colors-fuzzel.ini \
+          "$config"/fuzzel/colors.ini
 }
 
 # main function
@@ -81,7 +128,7 @@ function install {
     colored "magenta" " ]\n\n"
     
     local dotfiles
-    dotfiles="$(dirname "$(readlink -f $0)")"
+    dotfiles="$(dirname "$(readlink -f "$0")")"
     mkdir -p "$dotfiles"/.backup/.config
     mkdir -p "$HOME"/Pictures/Screenshots
     shopt -s dotglob
@@ -90,19 +137,30 @@ function install {
     do
         local name
         name="$(basename "$src")"
-        dinstall "$src" "$HOME"/.config/"$name" "$dotfiles"/.backup/.config/"$name"
+        dinstall "$src" \
+                 "$HOME"/.config/"$name" \
+                 "$dotfiles"/.backup/.config/"$name"
     done
 
-    dinstall "$dotfiles"/.scripts "$HOME"/.scripts "$dotfiles"/.backup/.scripts
-    dinstall "$dotfiles"/.wallpapers "$HOME"/.wallpapers "$dotfiles"/.backup/.wallpapers
-    dinstall "$dotfiles"/.bashrc.d "$HOME"/.bashrc.d "$dotfiles"/.backup/.bashrc.d
-    finstall "$dotfiles"/.home/.bashrc "$HOME"/.bashrc "$dotfiles"/.backup/.bashrc 
+    dinstall "$dotfiles"/.scripts \
+             "$HOME"/.scripts \
+             "$dotfiles"/.backup/.scripts
+             
+    dinstall "$dotfiles"/.wallpapers \
+             "$HOME"/.wallpapers \
+             "$dotfiles"/.backup/.wallpapers
+             
+    dinstall "$dotfiles"/.bashrc.d \
+             "$HOME"/.bashrc.d \
+             "$dotfiles"/.backup/.bashrc.d
 
-    uinstall "$dotfiles"/.samples/user_options.js \
-             "$HOME"/.config/ags/user_options.js
+    finstall "$dotfiles"/.home/.bashrc \
+             "$HOME"/.bashrc \
+             "$dotfiles"/.backup/.bashrc 
 
-    uinstall "$dotfiles"/.samples/user_options.conf \
-             "$HOME"/.config/hypr/user_options.conf 
+    uinstall
+
+    pinstall
 
     colored "magenta" "[ "
     colored "red" "Dotfiles installed!"
