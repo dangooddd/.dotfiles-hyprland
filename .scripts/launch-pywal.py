@@ -14,6 +14,7 @@ def symlink():
         f"{cache}/colors-ags.css": f"{config}/ags/style/colors.css",
         f"{cache}/colors-hyprland.conf" : f"{config}/hypr/colors-hyprland.conf"
     }
+    os.system(f"mkdir -p {config}/dunst/dunstrc.d")
     for src, dst in to_link.items():
         if not(Path(dst).exists()) and Path(src).exists():
             os.symlink(src, dst)
