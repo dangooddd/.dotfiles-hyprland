@@ -117,3 +117,8 @@
     stack_tag = "microphone_mute"
     alignment = center
     format = "<b>%s</b>"
+
+[brightness]
+    stack_tag = "brightness"
+    alignment = center
+    format = "<b>%s\n%p</b>"

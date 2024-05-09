@@ -28,7 +28,7 @@ sudo dnf copr enable peterwu/rendezvous
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer starship foot fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix zellij just hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl starship foot fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix zellij just hyprpaper hyprlock hypridle
 ```
 End of installing dependencies:
 ```bash
