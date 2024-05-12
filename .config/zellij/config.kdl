@@ -211,4 +211,6 @@ theme "catppuccin-mocha"
 
 scrollback_editor "/usr/bin/hx"
 
+pane_frames false
+
 copy_command "wl-copy"
