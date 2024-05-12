@@ -1,5 +1,5 @@
 [global]
-    # general
+    # General
     monitor = 0
     follow = mouse
     scale = 0
@@ -20,7 +20,7 @@
     progress_bar_corner_radius = 4
 
     # Other 
-    icon_corner_radius = 10
+    icon_corner_radius = 0
     indicate_hidden = yes
     
     gap_size = 10
