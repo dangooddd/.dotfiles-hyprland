@@ -11,5 +11,5 @@ b = ":sh just build"
 r = ":sh just run"
 
 [keys.normal."_"]
-b = ":sh zellij run -f -- just build"
-r = ":sh zellij run -f -- just run"
+b = ":sh zellij run -- just build"
+r = ":sh zellij run -- just run"
