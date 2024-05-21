@@ -5,7 +5,7 @@ Minimal setup for work by dangooddd
 
 ## Configurations 
 * **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland)
-* **Terminal:** [foot](https://codeberg.org/dnkl/foot)
+* **Terminal:** [WezTerm](https://github.com/wez/wezterm)
 * **App Launcher:** [fuzzel](https://codeberg.org/dnkl/fuzzel)
 * **Notification manager:** [dunst](https://github.com/dunst-project/dunst)
 * **Screen locker:** [hyprlock](https://github.com/hyprwm/hyprlock)
@@ -25,10 +25,11 @@ sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable varlad/zellij
 sudo dnf copr enable tofik/nwg-shell
 sudo dnf copr enable peterwu/rendezvous 
+sudo dnf copr enable wezfurlong/wezterm-nightly
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl starship foot fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix zellij just hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl starship wezterm foot fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix zellij just hyprpaper hyprlock hypridle
 ```
 End of installing dependencies:
 ```bash
