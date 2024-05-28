@@ -19,7 +19,6 @@ Minimal setup for work by dangooddd
 ### Fedora
 Enable some copr repos:
 ```bash 
-sudo dnf copr enable atim/starship
 sudo dnf copr enable che/nerd-fonts
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable varlad/zellij
@@ -31,9 +30,13 @@ Then install packages:
 ```bash
 sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl starship wezterm foot fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix zellij just hyprpaper hyprlock hypridle
 ```
-End of installing dependencies:
+Then install language-dependent packages:
 ```bash
 pip install pywal psutil
+cargo install starship
+```
+End of installing dependencies:
+```bash
 sudo dnf install hyprland-git-devel hyprland-git --exclude kitty
 ```
 

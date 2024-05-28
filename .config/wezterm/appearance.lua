@@ -9,17 +9,17 @@ local appearance = {
 } 
 
 local colors = {
-    bg = "#1f1f28",
-    fg = "#dcd7ba",
-    bg_dark = "#10101d",
-    color3 = "#e6c384",
+    bg = "#1F1F28",
+    fg = "#DCD7BA",
+    bg_dark = "#090909",
+    fg_bright = "#E6C384",
 }
 
 appearance.colors = {
     tab_bar = {
         active_tab = {
             bg_color = colors.bg,
-            fg_color = colors.color3,
+            fg_color = colors.fg_bright,
         },
         
         inactive_tab = {
@@ -39,17 +39,17 @@ appearance.colors = {
 
         new_tab_hover = {
             bg_color = colors.bg,
-            fg_color = colors.color3,
+            fg_color = colors.fg_bright,
         },
     }
 }
 
 appearance.window_frame = {
-    active_titlebar_bg = "#101016",
-    inactive_titlebar_bg = "#101016",
+    active_titlebar_bg = colors.bg_dark,
+    inactive_titlebar_bg = colors.bg_dark,
 
-    active_titlebar_fg = "#dcd7ba",
-    inactive_titlebar_fg = "#dcd7ba",
+    active_titlebar_fg = colors.fg,
+    inactive_titlebar_fg = colors.fg,
 }
 
 appearance.window_padding = {

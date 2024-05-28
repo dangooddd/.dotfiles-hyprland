@@ -4,7 +4,6 @@ indent = { tab-width = 4, unit = "    "}
 
 [[language]]
 name = "hyprlang"
-file-types = ["conf"]
 indent = { tab-width = 4, unit = "    "}
 
 [[language]]
@@ -21,16 +20,4 @@ indent = { tab-width = 4, unit = "    "}
 
 [[language]]
 name = "c"
-indent = { tab-width = 4, unit = "    "}
-
-[[language]]
-name = "cpp"
-indent = { tab-width = 4, unit = "    "}
-
-[[language]]
-name = "nasm"
-indent = { tab-width = 4, unit = "    "}
-
-[[language]]
-name = "gas"
 indent = { tab-width = 4, unit = "    "}

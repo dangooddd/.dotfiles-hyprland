@@ -1,15 +1,21 @@
 theme = "kanagawa"
 
+[editor]
+scrolloff = 4
+popup-border = "all"
+
 [editor.file-picker]
 hidden = false
 
 [editor.cursor-shape]
 insert = "bar"
+normal = "block"
+select = "block"
 
-[keys.normal."+"]
-b = ":sh just build"
-r = ":sh just run"
-
-[keys.normal."_"]
-b = ":sh zellij run -- just build"
-r = ":sh zellij run -- just run"
+[editor.statusline]
+left = ["mode", "spacer", "version-control", "diagnostics"]
+center = ["file-name", "file-modification-indicator"]
+right = ["primary-selection-length", "selections", "position"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
