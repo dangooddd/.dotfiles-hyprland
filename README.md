@@ -21,14 +21,13 @@ Enable some copr repos:
 ```bash 
 sudo dnf copr enable che/nerd-fonts
 sudo dnf copr enable solopasha/hyprland
-sudo dnf copr enable varlad/zellij
 sudo dnf copr enable tofik/nwg-shell
 sudo dnf copr enable peterwu/rendezvous 
 sudo dnf copr enable wezfurlong/wezterm-nightly
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl starship wezterm foot fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix zellij just hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts highlight bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl wezterm fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix just hyprpaper hyprlock hypridle
 ```
 Then install language-dependent packages:
 ```bash
