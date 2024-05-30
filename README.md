@@ -27,12 +27,13 @@ sudo dnf copr enable wezfurlong/wezterm-nightly
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts highlight bibata-cursor-themes wl-clipboard papirus-icon-theme network-manager-applet blueman pamixer brightnessctl wezterm fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix just hyprpaper hyprlock hypridle
+sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme unar jq fd-find ffmpegthumbnailer ripgrep fzf poppler network-manager-applet blueman pamixer brightnessctl wezterm fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix just hyprpaper hyprlock hypridle
 ```
 Then install language-dependent packages:
 ```bash
 pip install pywal psutil
 cargo install starship
+cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
 ```
 End of installing dependencies:
 ```bash
