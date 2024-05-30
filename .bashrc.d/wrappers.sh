@@ -1,6 +1,6 @@
 # wrapper functions
 
-function yz() {
+function yy() {
 	local tmp
 	tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -10,4 +10,4 @@ function yz() {
 	rm -f -- "$tmp"
 }
 
-alias yazi="yz"
+alias yazi="yy"
