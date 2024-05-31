@@ -1,6 +1,9 @@
 [flavor]
 use = "catppuccin-frappe"
 
+[manager]
+preview_hovered = { underline = false }
+
 [status]
 separator_open = ""
 separator_close = ""
