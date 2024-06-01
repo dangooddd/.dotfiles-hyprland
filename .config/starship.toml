@@ -1,0 +1,18 @@
+# starship.toml
+
+format = "$all"
+
+[character]
+format = "$symbol "
+success_symbol = "[->](bold green)"
+error_symbol = "[->](bold red)"
+vimcmd_symbol = "[<-](bold green)"
+vimcmd_replace_one_symbol = "[<-](bold blue)"
+vimcmd_replace_symbol = "[<-](bold blue)"
+vimcmd_visual_symbol = "[<-](bold magenta)"
+
+[directory]
+read_only = " "
+read_only_style = "bold yellow"
+truncation_length = 40
+truncate_to_repo = false

@@ -48,6 +48,7 @@ function lfile {
 # directory installation with backup if already exist
 function dinstall {
     # $1 - src, $2 - dst, $3 - back
+    
     if [ -d "$2" ]; then
         if [ -d "$3" ]; then
             ddir "$3"
@@ -56,7 +57,7 @@ function dinstall {
         colored "yellow" "* "
         printf "Move %s to %s\n" "$2" "$3" 
     fi
-
+        
     colored "green" "+ "
     printf "Link %s to %s\n\n" "$1" "$2"
     ln -s "$1" "$2"
@@ -66,7 +67,7 @@ function dinstall {
 function finstall {
     # $1 - src, $2 - dst, $3 - back
     if [ -f "$2" ] || [ -L "$2" ]; then
-        if [ -f "$3" ] || [ -L "$2" ]; then
+        if [ -f "$3" ] || [ -L "$3" ]; then
             rm "$3"
             colored "red" "# "
             printf "Remove %s\n" "$3"
@@ -134,9 +135,17 @@ function install {
     do
         local name
         name="$(basename "$src")"
-        dinstall "$src" \
-                 "$HOME"/.config/"$name" \
-                 "$dotfiles"/.backup/.config/"$name"
+        if [ -d "$src" ]; then
+            dinstall "$src" \
+                     "$HOME"/.config/"$name" \
+                     "$dotfiles"/.backup/.config/"$name"
+        fi
+                     
+        if [ -f "$src" ] || [ -L "$src" ]; then
+            finstall "$src" \
+                     "$HOME"/.config/"$name" \
+                     "$dotfiles"/.backup/.config/"$name"
+        fi
     done
 
     dinstall "$dotfiles"/.scripts \
@@ -151,9 +160,17 @@ function install {
              "$HOME"/.bashrc.d \
              "$dotfiles"/.backup/.bashrc.d
 
+    dinstall "$dotfiles"/.zsh \
+             "$HOME"/.zsh \
+             "$dotfiles"/.backup/.zsh
+
     finstall "$dotfiles"/.home/.bashrc \
              "$HOME"/.bashrc \
              "$dotfiles"/.backup/.bashrc 
+
+    finstall "$dotfiles"/.home/.zshrc \
+             "$HOME"/.zshrc \
+             "$dotfiles"/.backup/.zshrc 
 
     uinstall
 
