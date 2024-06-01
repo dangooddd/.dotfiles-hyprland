@@ -27,7 +27,7 @@ sudo dnf copr enable wezfurlong/wezterm-nightly
 ```
 Then install packages:
 ```bash
-sudo dnf install python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme unar jq fd-find ripgrep fzf poppler network-manager-applet blueman pamixer brightnessctl wezterm fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix just hyprpaper hyprlock hypridle
+sudo dnf install zsh python python-pip cascadia-code-fonts cascadia-code-pl-fonts rsms-inter-fonts nerd-fonts bibata-cursor-themes wl-clipboard papirus-icon-theme unar jq fd-find ripgrep fzf poppler network-manager-applet blueman pamixer brightnessctl wezterm fuzzel nwg-look kvantum qt6ct zoxide cargo dunst aylurs-gtk-shell-git helix just hyprpaper hyprlock hypridle
 ```
 Then install language-dependent packages:
 ```bash
@@ -38,6 +38,11 @@ cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
 End of installing dependencies:
 ```bash
 sudo dnf install hyprland-git-devel hyprland-git --exclude kitty
+```
+
+Change shell to zsh:
+```bash
+chsh -s $(which zsh)
 ```
 
 ## Installation

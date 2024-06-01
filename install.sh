@@ -156,17 +156,9 @@ function install {
              "$HOME"/.wallpapers \
              "$dotfiles"/.backup/.wallpapers
              
-    dinstall "$dotfiles"/.bashrc.d \
-             "$HOME"/.bashrc.d \
-             "$dotfiles"/.backup/.bashrc.d
-
     dinstall "$dotfiles"/.zsh \
              "$HOME"/.zsh \
              "$dotfiles"/.backup/.zsh
-
-    finstall "$dotfiles"/.home/.bashrc \
-             "$HOME"/.bashrc \
-             "$dotfiles"/.backup/.bashrc 
 
     finstall "$dotfiles"/.home/.zshrc \
              "$HOME"/.zshrc \
