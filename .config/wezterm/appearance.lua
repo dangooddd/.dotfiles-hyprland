@@ -6,7 +6,7 @@ local appearance = {
     color_scheme = "Kanagawa (Gogh)",
     font = wezterm.font "Cascadia Code",
     font_size = 16,
-    default_cursor_style = "SteadyBlock",
+    default_cursor_style = "SteadyBar",
     animation_fps = 60
 } 
 

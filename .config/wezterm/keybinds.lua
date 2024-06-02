@@ -28,10 +28,10 @@ local keybinds = {
     key_tables = {
         pane_mode = {
             -- open/close panes
-            { key = "h", action = act.SplitPane { direction = "Left" } },
-            { key = "j", action = act.SplitPane { direction = "Down" } },
-            { key = "k", action = act.SplitPane { direction = "Up" } },
-            { key = "l", action = act.SplitPane { direction = "Right" } },
+            { key = "h", action = act.Multiple { act.SplitPane { direction = "Left" }, act.PopKeyTable } },
+            { key = "j", action = act.Multiple { act.SplitPane { direction = "Down" }, act.PopKeyTable } },
+            { key = "k", action = act.Multiple { act.SplitPane { direction = "Up" }, act.PopKeyTable } },
+            { key = "l", action = act.Multiple { act.SplitPane { direction = "Right" }, act.PopKeyTable } },
             { key = "q", action = act.PopKeyTable },
             { key = "Escape", action = act.PopKeyTable },
         },
