@@ -3,6 +3,8 @@ theme = "kanagawa"
 [editor]
 scrolloff = 4
 popup-border = "all"
+line-number = "relative"
+color-modes = true
 
 [editor.file-picker]
 hidden = false
