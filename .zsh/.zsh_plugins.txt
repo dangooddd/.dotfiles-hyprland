@@ -2,6 +2,6 @@
 
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-history-substring-search
+dangooddd/zsh-history-substring-search
 zsh-users/zsh-completions kind:fpath path:src
 mattmc3/zshrc.d
