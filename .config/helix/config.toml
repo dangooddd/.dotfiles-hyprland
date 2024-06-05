@@ -1,5 +1,6 @@
 theme = "kanagawa"
 
+# general
 [editor]
 scrolloff = 4
 popup-border = "all"
@@ -28,9 +29,15 @@ mode.select = "SELECT"
 display-signature-help-docs = false
 display-inlay-hints = false
 
+[editor.indent-guides]
+render = true
+
+# move line up and down
 [keys.normal]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
-[keys.normal.space]
-i = ":toggle lsp.display-inlay-hints"
+# Toggle some options
+[keys.normal."+"]
+h = ":toggle lsp.display-inlay-hints"
+g = ":toggle indent-guides.render"
