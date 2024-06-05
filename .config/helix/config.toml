@@ -5,6 +5,8 @@ scrolloff = 4
 popup-border = "all"
 line-number = "relative"
 color-modes = true
+auto-completion = true
+preview-completion-insert = false
 
 [editor.file-picker]
 hidden = false
@@ -21,3 +23,14 @@ right = ["primary-selection-length", "selections", "position"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.lsp]
+display-signature-help-docs = false
+display-inlay-hints = false
+
+[keys.normal]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+[keys.normal.space]
+i = ":toggle lsp.display-inlay-hints"

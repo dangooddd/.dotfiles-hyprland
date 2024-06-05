@@ -1,24 +1,7 @@
 # init.sh
 
 eval "$(starship init zsh)"
-
 eval "$(zoxide init zsh)"
 
-# opts
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_SPACE
-
-# persist history
-HISTFILE=~/.zsh_history
-HISTSIZE=2000
-SAVEHIST=1000
-
-# history substring search
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=black,bg=magenta"
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=black,bg=red"
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_TIMEOUT=0.4
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+export EDITOR="hx"
+export LESS="--tilde -S"
