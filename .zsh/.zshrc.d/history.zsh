@@ -9,7 +9,6 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
 
 # persist history
-set _zsh_cache_dir
 _zsh_cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}/zsh
 [[ -d "$_zsh_cache_dir" ]] || mkdir -p "$_zsh_cache_dir"
 

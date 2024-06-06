@@ -8,6 +8,7 @@ line-number = "relative"
 color-modes = true
 auto-completion = true
 preview-completion-insert = false
+auto-pairs = false
 
 [editor.file-picker]
 hidden = false
@@ -41,3 +42,4 @@ C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_befor
 [keys.normal."+"]
 h = ":toggle lsp.display-inlay-hints"
 g = ":toggle indent-guides.render"
+p = ":toggle auto-pairs"

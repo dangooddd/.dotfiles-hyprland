@@ -1,10 +1,6 @@
 # completion for zsh
 # includes completion and history settings
 
-set _zsh_cache_dir
-set _zsh_compcache
-set _zsh_compdump
-
 _zsh_cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}/zsh
 [[ -d $_zsh_cache_dir ]] || mkdir -p $_zsh_cache_dir
 _zsh_compcache=$_zsh_cache_dir/zsh_compcache
