@@ -31,7 +31,7 @@ display-signature-help-docs = false
 display-inlay-hints = false
 
 [editor.indent-guides]
-render = true
+render = false
 
 # move line up and down
 [keys.normal]
