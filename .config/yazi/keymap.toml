@@ -3,4 +3,7 @@
 [manager]
 prepend_keymap = [
     { on = [ "e" ], run = 'shell "chmod a+x $0"', desc = "make file executable" },
+    { on = [ "<C-g>", "a" ], run = 'shell "git add ."', desc = "stage all files" },
+    { on = [ "<C-g>", "c" ], run = 'shell "git commit -m "', desc = "commit stages" },
+    { on = [ "<C-g>", "p" ], run = 'shell "git push origin HEAD:"', desc = "push changes to remote" },
 ]
