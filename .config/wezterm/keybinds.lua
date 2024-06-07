@@ -11,8 +11,6 @@ local keybinds = {
         { key = "n", mods = tabMod, action = act.SpawnTab "CurrentPaneDomain" },
         { key = "h", mods = tabMod, action = act.ActivateTabRelative(-1) },
         { key = "l", mods = tabMod, action = act.ActivateTabRelative(1) },
-        -- hack to remove SHIFT|SPACE escape sequence
-        { key = "Space", mods = "SHIFT", action = act.Nop },
         -- panes
         { key = "p", mods = paneMod, action = act.ActivateKeyTable { name = "pane_mode", one_shot = false } },
         { key = "r", mods = paneMod, action = act.ActivateKeyTable { name = "resize_mode", one_shot = false } },
