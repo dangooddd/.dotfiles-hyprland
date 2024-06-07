@@ -22,7 +22,7 @@ function ddir {
         if [ -L "$1" ]; then
             rm "$1"
         else 
-            rm -r "$1"
+            rm -rf "$1"
         fi
         colored "red" "# "
         printf "Remove %s\n" "$1"
