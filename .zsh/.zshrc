@@ -6,12 +6,10 @@ fi
 export PATH
 
 # antidote bootstrap 
-export ZDOTDIR=$HOME/.zsh
 _zsh_plugins=$ZDOTDIR/.zsh_plugins.txt
 _zsh_zshrc_d=$ZDOTDIR/.zshrc.d
 _antidote=$ZDOTDIR/.antidote
 
-[[ -d $ZDOTDIR ]] || mkdir -p "$ZDOTDIR"
 [[ -e $_zsh_plugins ]] || touch "$_zsh_plugins"
 [[ -d $_zsh_zshrc_d ]] || mkdir -p "$_zsh_zshrc_d"
 

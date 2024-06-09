@@ -6,9 +6,10 @@ scrolloff = 4
 popup-border = "all"
 line-number = "relative"
 color-modes = true
+auto-save = true
 auto-completion = true
 preview-completion-insert = false
-auto-pairs = false
+auto-pairs = true
 
 [editor.file-picker]
 hidden = false
@@ -35,6 +36,8 @@ render = false
 
 # move line up and down
 [keys.normal]
+a = ["move_char_right", "insert_mode"]
+"A-a" = ["append_mode"]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
@@ -43,3 +46,4 @@ C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_befor
 h = ":toggle lsp.display-inlay-hints"
 g = ":toggle indent-guides.render"
 p = ":toggle auto-pairs"
+w = ":toggle soft-wrap.enable"

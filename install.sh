@@ -160,9 +160,9 @@ function install {
              "$HOME"/.zsh \
              "$dotfiles"/.backup/.zsh
 
-    finstall "$dotfiles"/.home/.zshrc \
-             "$HOME"/.zshrc \
-             "$dotfiles"/.backup/.zshrc 
+    finstall "$dotfiles"/.home/.zshenv \
+             "$HOME"/.zshenv \
+             "$dotfiles"/.backup/.zshenv
 
     uinstall
 

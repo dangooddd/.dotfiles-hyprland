@@ -64,7 +64,7 @@ appearance.window_padding = {
 
 appearance.inactive_pane_hsb = {
     saturation = 1.0,
-    brightness = 1.0,
+    brightness = 0.8,
 }
 
 return appearance

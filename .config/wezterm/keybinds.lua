@@ -6,6 +6,10 @@ local mainMod = "CTRL|SHIFT"   -- general mod
 
 local keybinds = {
     keys = {
+        -- general
+        { key = "f", mods = mainMod, action = act.ActivateKeyTable { name = "font_mode", one_shot = false} },
+        { key = "v", mods = mainMod, action = act.PasteFrom "Clipboard" },
+        { key = "c", mods = mainMod, action = act.CopyTo "ClipboardAndPrimarySelection" },
         -- general move
         { key = "q", mods = tabMod, action = act.CloseCurrentTab { confirm = true } },
         { key = "n", mods = tabMod, action = act.SpawnTab "CurrentPaneDomain" },
@@ -19,9 +23,6 @@ local keybinds = {
         { key = "j", mods = paneMod, action = act.ActivatePaneDirection "Down" },
         { key = "k", mods = paneMod, action = act.ActivatePaneDirection "Up" },
         { key = "l", mods = paneMod, action = act.ActivatePaneDirection "Right" },
-        -- Clipboard
-        { key = "v", mods = mainMod, action = act.PasteFrom "Clipboard" },
-        { key = "c", mods = mainMod, action = act.CopyTo "ClipboardAndPrimarySelection" },
     },
     key_tables = {
         pane_mode = {
@@ -30,6 +31,7 @@ local keybinds = {
             { key = "j", action = act.Multiple { act.SplitPane { direction = "Down" }, act.PopKeyTable } },
             { key = "k", action = act.Multiple { act.SplitPane { direction = "Up" }, act.PopKeyTable } },
             { key = "l", action = act.Multiple { act.SplitPane { direction = "Right" }, act.PopKeyTable } },
+            -- exit
             { key = "q", action = act.PopKeyTable },
             { key = "Escape", action = act.PopKeyTable },
         },
@@ -39,9 +41,19 @@ local keybinds = {
             { key = "j", action = act.AdjustPaneSize { "Down", 5 } },
             { key = "k", action = act.AdjustPaneSize { "Up", 5 } },
             { key = "l", action = act.AdjustPaneSize { "Right", 5 } },
+            -- exit
             { key = "q", action = act.PopKeyTable },
             { key = "Escape", action = act.PopKeyTable },
-        }
+        },
+        font_mode = {
+            -- resize font
+            { key = "=", action = act.IncreaseFontSize },
+            { key = "-", action = act.DecreaseFontSize },
+            { key = "0", action = act.Multiple { act.ResetFontSize, act.PopKeyTable } },
+            -- exit
+            { key = "q", action = act.PopKeyTable },
+            { key = "Escape", action = act.PopKeyTable },
+        },
     },
 }
 

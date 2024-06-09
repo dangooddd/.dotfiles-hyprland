@@ -25,3 +25,13 @@ indent = { tab-width = 4, unit = "    "}
 [[language]]
 name = "toml"
 indent = { tab-width = 4, unit = "    "}
+
+[[language]]
+name = "latex"
+indent = { tab-width = 4, unit = "    "}
+
+[language.auto-pairs]
+'$' = '$'
+'(' = ')'
+'{' = '}'
+'[' = ']'

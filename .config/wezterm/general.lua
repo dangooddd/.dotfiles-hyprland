@@ -1,5 +1,7 @@
 local wezterm = require "wezterm"
 
-return {
+local config = {
     disable_default_key_bindings = true,
 }
+
+return config
