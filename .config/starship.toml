@@ -1,15 +1,27 @@
 # starship.toml
+# ╭
 
-format = "$all"
+# format = """
+# [┌- ](bold green)\
+# $directory\
+# $git_branch\
+# $cmd_duration
+# $character
+# """
+
+format = """
+[┌](bold green) $directory$git_branch$cmd_duration
+[└](bold green)$character
+"""
 
 [character]
-format = "$symbol "
-success_symbol = "[->](bold green)"
-error_symbol = "[->](bold red)"
-vimcmd_symbol = "[<-](bold green)"
-vimcmd_replace_one_symbol = "[<-](bold blue)"
-vimcmd_replace_symbol = "[<-](bold blue)"
-vimcmd_visual_symbol = "[<-](bold magenta)"
+format = '$symbol '
+success_symbol = '[->](bold green)'
+error_symbol = '[┤](bold green)[✘](bold red)[├->](bold green)'
+vimcmd_symbol = '[┤](bold green)[N](bold blue)[├->](bold green)'
+vimcmd_replace_one_symbol = '[┤](bold green)[R](bold cyan)[├->](bold green)'
+vimcmd_replace_symbol = '[┤](bold green)[R](bold cyan)[├->](bold green)'
+vimcmd_visual_symbol = '[┤](bold green)[V](bold magenta)[├->](bold green)'
 
 [directory]
 read_only = " "
