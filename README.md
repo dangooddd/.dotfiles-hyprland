@@ -39,7 +39,6 @@ End of installing dependencies:
 ```bash
 sudo dnf install hyprland-git-devel hyprland-git --exclude kitty
 ```
-
 Change shell to zsh:
 ```bash
 chsh -s $(which zsh)
@@ -68,3 +67,7 @@ Script will symlink dotfiles to your filesystem (existing directories will be mo
 cd .dotfiles
 ./install.sh
 ```
+
+### After installation
+If you have problems with something (you definitely would)
+check my [Setup guide](SETUP.md)
