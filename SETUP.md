@@ -20,13 +20,13 @@ To solve this problem you should find your keyboard name:
 ```bash
 hyprctl devices
 ```
-And then set this name into <u>~/.config/ags/user-options.js</u>.
+And then set this name into ~/.config/ags/user-options.js.
 
 If you can't find your keyboard, just try to place all of them one-by-one.
 
 ### Hyprland monitor scale
-You can set any of hyprland settings in <u>~/.config/hypr/user/user-config.conf</u> and setup your monitor properly. 
+You can set any of hyprland settings in ~/.config/hypr/user/user-config.conf and setup your monitor properly. 
 Check [Hyprland Wiki](https://wiki.hyprland.org/).
 
 ### Hyprlock background
-You can change background in <u>~/.config/hypr/user/user-variables.conf</u>
+You can change background in ~/.config/hypr/user/user-variables.conf
