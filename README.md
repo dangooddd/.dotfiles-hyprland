@@ -6,11 +6,13 @@ Minimal setup for work by dangooddd
 ## Configurations 
 * **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland)
 * **Terminal:** [WezTerm](https://github.com/wez/wezterm)
+* **Prompt:** [Starship](https://github.com/starship/starship)
 * **App Launcher:** [fuzzel](https://codeberg.org/dnkl/fuzzel)
 * **Notification manager:** [dunst](https://github.com/dunst-project/dunst)
 * **Screen locker:** [hyprlock](https://github.com/hyprwm/hyprlock)
 * **Idle:** [hypridle](https://github.com/hyprwm/hypridle)
 * **Wallpaper manager:** [hyprpaper](https://github.com/hyprwm/hyprpaper)
+* **TUI file manager:** [Yazi](https://github.com/sxyazi/yazi)
 * **Bar:** [ags](https://github.com/Aylur/ags)
 * **Code Editor:** [Helix](https://github.com/helix-editor/helix)
 * **Font:** [Inter](https://github.com/rsms/inter) as UI font and [Cascadia Code](https://github.com/microsoft/cascadia-code) as monospace font
