@@ -13,3 +13,5 @@ function yy() {
 alias llf="ls -la | grep"
 
 alias yazi="yy"
+
+alias distrobox="SHELL=$(which bash) distrobox"
