@@ -70,4 +70,4 @@ cd .dotfiles
 
 ### After installation
 If you have problems with something (you definitely would)
-check my [Setup guide](SETUP.md)
+check my [setup guide](SETUP.md)
