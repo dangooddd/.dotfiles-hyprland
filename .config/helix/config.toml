@@ -20,9 +20,9 @@ normal = "block"
 select = "block"
 
 [editor.statusline]
-left = ["mode", "spacer", "version-control", "diagnostics"]
+left   = ["mode", "spacer", "version-control", "diagnostics"]
 center = ["file-name", "file-modification-indicator"]
-right = ["primary-selection-length", "selections", "position"]
+right  = ["primary-selection-length", "selections", "position"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
@@ -36,10 +36,10 @@ render = false
 
 # move line up and down
 [keys.normal]
-a = ["move_char_right", "insert_mode"]
-"A-a" = ["append_mode"]
-C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+A-a = "append_mode"
+a   = [ "move_char_right", "insert_mode" ]
+C-j = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+C-k = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
 
 # Toggle some options
 [keys.normal."+"]

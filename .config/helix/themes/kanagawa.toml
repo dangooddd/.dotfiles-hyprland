@@ -1,5 +1,9 @@
 inherits = "kanagawa"
 
-"ui.virtual.inlay-hint" = { fg = "fujiGray" }
+"ui.virtual.inlay-hint"           = { fg = "fujiGray" }
 "ui.virtual.inlay-hint.parameter" = { fg = "fujiGray" }
-"ui.virtual.inlay-hint.type" = { fg = "fujiGray" }
+"ui.virtual.inlay-hint.type"      = { fg = "fujiGray" }
+
+"ui.menu"          = { fg = "fujiWhite", bg = "sumiInk0" }
+"ui.menu.selected" = { fg = "carpYellow", bg = "sumiInk3", modifiers = ["bold"] }
+"ui.menu.scroll"   = { fg = "oldWhite", bg = "sumiInk0" }
