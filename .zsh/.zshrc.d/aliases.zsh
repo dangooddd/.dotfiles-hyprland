@@ -1,5 +1,6 @@
 # aliases.zsh
 
+# yazi: cd after quit
 function yy() {
     local tmp
     tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -11,8 +12,13 @@ function yy() {
     rm -f -- "$tmp"
 }
 
+# no new line on top after clear
+alias clear="unset NEW_LINE_BEFORE_PROMPT && clear"
+
 alias llf="ls -la | grep"
 
+# yazi will cd after quit by default
 alias yazi="yy"
 
+# no zsh in container
 alias distrobox="SHELL=$(which bash) distrobox"

@@ -1,9 +1,31 @@
-[flavor]
-use = "catppuccin-frappe"
-
+# general 
 [manager]
-preview_hovered = { underline = false }
+preview_hovered = { reversed = true }
+marker_copied   = { fg = "#98bb6c", bg = "#98bb6c" }
+marker_cut      = { fg = "#e46876", bg = "#e46876" }
+marker_marked   = { fg = "#957fb8", bg = "#957fb8" }
+marker_selected = { fg = "#ffa066", bg = "#ffa066" }
+syntect_theme = "~/.config/yazi/syntect/kanagawa.tmTheme"
 
+# status-line
 [status]
 separator_open = ""
 separator_close = ""
+separator_style = { fg = "reset", bg = "#363646" }
+
+mode_normal = { fg = "#1f1f28", bg = "#85a6ea", bold = true }
+mode_select = { fg = "#1f1f28", bg = "#957fb8", bold = true }
+mode_unset  = { fg = "#1f1f28", bg = "#e6c384", bold = true }
+
+# files
+[filetype]
+rules = [
+    { mime = "image/*", fg = "#e6c384" },
+    { mime = "{audio,video}/*", fg = "#957fb8" },
+    { mime = "application/{,g}zip", fg = "#e46876" },
+    { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#e46876" },
+    { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#6a9589" },
+    { name = "*", is = "orphan", fg = "#e46876" },
+    { name = "*", is = "exec", fg = "#957fb8" },
+    { name = "*/", fg = "#85a6ea"}
+]

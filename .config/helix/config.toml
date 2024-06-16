@@ -47,3 +47,7 @@ h = ":toggle lsp.display-inlay-hints"
 g = ":toggle indent-guides.render"
 p = ":toggle auto-pairs"
 w = ":toggle soft-wrap.enable"
+
+# Better normal mode keybind
+[keys.insert]
+A-ret = "normal_mode"

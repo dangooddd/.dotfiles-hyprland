@@ -57,9 +57,9 @@ appearance.window_frame = {
 
 appearance.window_padding = {
     left = "1cell",
-    right = "0cell",
-    top = "0cell",
-    bottom = "0cell",
+    right = "0.5cell",
+    top = "0.5cell",
+    bottom = "0.5cell",
 }
 
 appearance.inactive_pane_hsb = {

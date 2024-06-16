@@ -11,7 +11,7 @@ local keybinds = {
         { key = "v", mods = mainMod, action = act.PasteFrom "Clipboard" },
         { key = "c", mods = mainMod, action = act.CopyTo "ClipboardAndPrimarySelection" },
         -- general move
-        { key = "q", mods = tabMod, action = act.CloseCurrentTab { confirm = true } },
+        { key = "q", mods = tabMod, action = act.CloseCurrentTab { confirm = false } },
         { key = "n", mods = tabMod, action = act.SpawnTab "CurrentPaneDomain" },
         { key = "h", mods = tabMod, action = act.ActivateTabRelative(-1) },
         { key = "l", mods = tabMod, action = act.ActivateTabRelative(1) },

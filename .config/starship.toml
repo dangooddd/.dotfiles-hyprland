@@ -1,13 +1,6 @@
 # starship.toml
-# ╭
 
-# format = """
-# [┌- ](bold green)\
-# $directory\
-# $git_branch\
-# $cmd_duration
-# $character
-# """
+add_newline = false
 
 format = """
 [┌](bold green) $directory$git_branch$cmd_duration
