@@ -19,5 +19,6 @@ vimcmd_visual_symbol = '[┤](bold green)[V](bold magenta)[├->](bold green)'
 [directory]
 read_only = " "
 read_only_style = "bold yellow"
-truncation_length = 40
+truncation_symbol = "../"
+truncation_length = 4
 truncate_to_repo = false
