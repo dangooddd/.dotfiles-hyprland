@@ -1,10 +1,12 @@
 # general 
 [manager]
-preview_hovered = { reversed = true }
 marker_copied   = { fg = "#98bb6c", bg = "#98bb6c" }
 marker_cut      = { fg = "#e46876", bg = "#e46876" }
 marker_marked   = { fg = "#957fb8", bg = "#957fb8" }
 marker_selected = { fg = "#ffa066", bg = "#ffa066" }
+
+cwd = { fg = "#e6c384" }
+preview_hovered = { reversed = true }
 syntect_theme = "~/.config/yazi/syntect/kanagawa.tmTheme"
 
 # status-line
@@ -16,6 +18,10 @@ separator_style = { fg = "reset", bg = "#363646" }
 mode_normal = { fg = "#1f1f28", bg = "#85a6ea", bold = true }
 mode_select = { fg = "#1f1f28", bg = "#957fb8", bold = true }
 mode_unset  = { fg = "#1f1f28", bg = "#e6c384", bold = true }
+
+progress_label  = { fg = "#85a6ea", bg = "#363646", bold = true }
+progress_normal = { fg = "#363646", bg = "#1f1f28" }
+progress_error  = { fg = "#363646", bg = "#1f1f28" }
 
 # files
 [filetype]
