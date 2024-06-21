@@ -23,6 +23,13 @@ progress_label  = { fg = "#85a6ea", bg = "#363646", bold = true }
 progress_normal = { fg = "#363646", bg = "#1f1f28" }
 progress_error  = { fg = "#363646", bg = "#1f1f28" }
 
+[which]
+cols = 2
+separator = " - "
+mask = { bg = "#131319" }
+cand = { fg = "#85a6ea" }
+desc = { fg = "#565666" }
+
 # files
 [filetype]
 rules = [

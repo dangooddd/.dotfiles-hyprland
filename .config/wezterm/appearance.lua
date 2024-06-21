@@ -14,7 +14,7 @@ local appearance = {
 local colors = {
     bg = "#1F1F28",
     fg = "#DCD7BA",
-    bg_dark = "#090909",
+    bg_dark = "#131319",
     fg_bright = "#E6C384",
 }
 
