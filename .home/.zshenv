@@ -2,4 +2,3 @@
 
 export ZDOTDIR=$HOME/.zsh
 [[ -d $ZDOTDIR ]] || mkdir -p "$ZDOTDIR"
-. "$HOME/.cargo/env"
