@@ -16,7 +16,7 @@ local keybinds = {
         { key = "h", mods = tabMod, action = act.ActivateTabRelative(-1) },
         { key = "l", mods = tabMod, action = act.ActivateTabRelative(1) },
         -- panes
-        { key = "p", mods = paneMod, action = act.ActivateKeyTable { name = "pane_mode", one_shot = false } },
+        { key = ";", mods = paneMod, action = act.ActivateKeyTable { name = "pane_mode", one_shot = false } },
         { key = "r", mods = paneMod, action = act.ActivateKeyTable { name = "resize_mode", one_shot = false } },
         { key = "q", mods = paneMod, action = act.CloseCurrentPane { confirm = false } },
         { key = "h", mods = paneMod, action = act.ActivatePaneDirection "Left" },
