@@ -2,5 +2,5 @@
 
 [manager]
 prepend_keymap = [
-    { on = [ "e" ], run = 'shell "chmod a+x $0"', desc = "make file executable" },
+    { on = [ "e" ], run = 'shell "chmod a+x $0" --interactive', desc = "make file executable" },
 ]
