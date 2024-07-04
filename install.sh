@@ -9,7 +9,7 @@ function colored {
         "green") color="\e[0;32m";;
         "magenta") color="\e[0;35m";;
         "yellow") color="\e[1;33m";;
-    esac 
+    esac
     end="\e[0m"
     printf "$color$2$end"
 }
@@ -18,10 +18,10 @@ function colored {
 # if directory is link, delete link file
 # (linked directory will be fine)
 function ddir {
-    if [ -d "$1" ]; then 
+    if [ -d "$1" ]; then
         if [ -L "$1" ]; then
             rm "$1"
-        else 
+        else
             rm -rf "$1"
         fi
         colored "red" "# "
@@ -48,16 +48,16 @@ function lfile {
 # directory installation with backup if already exist
 function dinstall {
     # $1 - src, $2 - dst, $3 - back
-    
+
     if [ -d "$2" ]; then
         if [ -d "$3" ]; then
             ddir "$3"
         fi
         mv "$2" "$3"
         colored "yellow" "* "
-        printf "Move %s to %s\n" "$2" "$3" 
+        printf "Move %s to %s\n" "$2" "$3"
     fi
-        
+
     colored "green" "+ "
     printf "Link %s to %s\n\n" "$1" "$2"
     ln -s "$1" "$2"
@@ -75,7 +75,7 @@ function finstall {
         mv "$2" "$3"
         colored "yellow" "* "
         printf "Move %s to %s\n" "$2" "$3"
-    fi   
+    fi
 
     colored "green" "+ "
     printf "Link %s to %s\n\n" "$1" "$2"
@@ -90,12 +90,12 @@ function uinstall {
 
     cfile "$dotfiles"/.samples/user-options.js \
           "$HOME"/.config/ags/user-options.js
-    
+
     cfile "$dotfiles"/.samples/user-config.conf \
-          "$HOME"/.config/hypr/user/user-config.conf 
+          "$HOME"/.config/hypr/user/user-config.conf
 
     cfile "$dotfiles"/.samples/user-variables.conf \
-          "$HOME"/.config/hypr/user/user-variables.conf 
+          "$HOME"/.config/hypr/user/user-variables.conf
 }
 
 # pywal links setup
@@ -105,13 +105,13 @@ function pinstall {
     cache="$HOME"/.cache/wal
     config="$HOME"/.config
     mkdir -p "$config"/hypr/user
-    
+
     lfile "$cache"/colors-dunst.conf \
           "$config"/dunst/dunstrc.d/00-colors.conf
 
     lfile "$cache"/colors-ags.css \
           "$config"/ags/style/colors.css
-          
+
     lfile "$cache"/colors-hyprland.conf \
           "$config"/hypr/user/colors.conf
 
@@ -124,7 +124,7 @@ function install {
     colored "magenta" "\n[ "
     colored "red" "Installing dangooddd dotfiles"
     colored "magenta" " ]\n\n"
-    
+
     local dotfiles
     dotfiles="$(dirname "$(readlink -f "$0")")"
     mkdir -p "$dotfiles"/.backup/.config
@@ -140,7 +140,7 @@ function install {
                      "$HOME"/.config/"$name" \
                      "$dotfiles"/.backup/.config/"$name"
         fi
-                     
+
         if [ -f "$src" ] || [ -L "$src" ]; then
             finstall "$src" \
                      "$HOME"/.config/"$name" \
@@ -151,11 +151,11 @@ function install {
     dinstall "$dotfiles"/.scripts \
              "$HOME"/.scripts \
              "$dotfiles"/.backup/.scripts
-             
+
     dinstall "$dotfiles"/.wallpapers \
              "$HOME"/.wallpapers \
              "$dotfiles"/.backup/.wallpapers
-             
+
     dinstall "$dotfiles"/.zsh \
              "$HOME"/.zsh \
              "$dotfiles"/.backup/.zsh
