@@ -37,6 +37,10 @@ pip install pywal
 cargo install --locked starship
 cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
 ```
+Then install yazi plugins:
+```bash
+ya pack -a yazi-rs/plugins#full-border
+```
 End of installing dependencies:
 ```bash
 sudo dnf install hyprland-git --exclude kitty
